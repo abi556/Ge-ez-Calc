@@ -3,7 +3,7 @@ import { safeArabicToGeez, safeGeezToArabic, ALL_GEEZ_NUMERALS, validateGeezInpu
 import { TodayWidget } from './components/TodayWidget'
 import { CalendarPage } from './components/CalendarPage'
 import { DateConverterPage } from './components/DateConverterPage'
-import { LightbulbIcon, CheckIcon, AlertIcon } from './components/Icons'
+import { LightbulbIcon, CheckIcon } from './components/Icons'
 
 // Page types for navigation
 type Page = 'converter' | 'calendar' | 'learn' | 'dates'
@@ -77,9 +77,9 @@ function App() {
   if (currentPage === 'learn') {
     return (
       <div className="min-h-screen bg-gray-100 flex flex-col">
-        {/* Header - Same as main site */}
+        {/* Header - Full width */}
         <header className="bg-gray-800 text-white">
-          <div className="max-w-4xl mx-auto px-6 py-3 flex items-center justify-between">
+          <div className="px-6 py-3 flex items-center justify-between">
             <div className="flex items-center gap-4">
               <div className="flex items-center gap-2">
                 <span className="text-teal-400 text-xl font-semibold">ግ</span>
@@ -128,7 +128,7 @@ function App() {
 
         {/* Footer */}
         <footer className="py-4 text-center text-sm text-gray-400 border-t border-gray-200">
-          <p>Ge'ez Calc — Ethiopian Numeral Converter</p>
+          <p>Ge'ez Calc — Discover Ethiopian Heritage</p>
         </footer>
       </div>
     )
@@ -137,9 +137,9 @@ function App() {
   // Render Converter Page (default)
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col">
-      {/* Header */}
+      {/* Header - Full width */}
       <header className="bg-gray-800 text-white">
-        <div className="max-w-4xl mx-auto px-6 py-3 flex items-center justify-between">
+        <div className="px-6 py-3 flex items-center justify-between">
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2">
               <span className="text-teal-400 text-xl font-semibold">ግ</span>
@@ -302,9 +302,8 @@ function App() {
                       </div>
                     </div>
                     {geezError && (
-                      <p className="mt-2 text-xs text-red-500 flex items-center gap-1">
-                        <AlertIcon size={14} className="text-red-500 flex-shrink-0" />
-                        <span>{geezError}</span>
+                      <p className="mt-2 text-xs text-red-500">
+                        {geezError}
                       </p>
                     )}
                   </div>
@@ -373,7 +372,7 @@ function App() {
 
       {/* Footer */}
       <footer className="py-4 text-center text-sm text-gray-400 border-t border-gray-200">
-        <p>Ge'ez Calc — Ethiopian Numeral Converter</p>
+        <p>Ge'ez Calc — Discover Ethiopian Heritage</p>
       </footer>
     </div>
   )

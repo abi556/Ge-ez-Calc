@@ -119,9 +119,9 @@ export function DateConverterPage({ onNavigate }: DateConverterPageProps) {
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col">
-      {/* Header */}
+      {/* Header - Full width */}
       <header className="bg-gray-800 text-white">
-        <div className="max-w-4xl mx-auto px-6 py-3 flex items-center justify-between">
+        <div className="px-6 py-3 flex items-center justify-between">
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2">
               <span className="text-teal-400 text-xl font-semibold">ግ</span>
@@ -399,7 +399,7 @@ export function DateConverterPage({ onNavigate }: DateConverterPageProps) {
 
       {/* Footer */}
       <footer className="py-4 text-center text-sm text-gray-400 border-t border-gray-200">
-        <p>Ge'ez Calc — Ethiopian Date Converter</p>
+        <p>Ge'ez Calc — Discover Ethiopian Heritage</p>
       </footer>
     </div>
   )
