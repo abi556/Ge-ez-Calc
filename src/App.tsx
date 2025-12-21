@@ -9,8 +9,8 @@ import { LightbulbIcon, CheckIcon, AlertIcon } from './components/Icons'
 type Page = 'converter' | 'calendar' | 'learn' | 'dates'
 
 function App() {
-  // Page navigation state
-  const [currentPage, setCurrentPage] = useState<Page>('converter')
+  // Page navigation state - Calendar is the default landing page
+  const [currentPage, setCurrentPage] = useState<Page>('calendar')
 
   // Converter state
   const [arabicInput, setArabicInput] = useState('')

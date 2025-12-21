@@ -134,6 +134,26 @@ export function CalendarPage({ onNavigate }: CalendarPageProps) {
 
   const days = useMemo(generateDays, [viewYear, viewMonth, today])
 
+  // Get holidays for the current month
+  const monthHolidays = useMemo(() => {
+    const holidays: Array<{ day: number, name: string, dayGeez: string }> = []
+    const isLeap = new Kenat({ year: viewYear, month: 1, day: 1 }).isLeapYear()
+    const daysInMonth = viewMonth === 13 ? (isLeap ? 6 : 5) : 30
+
+    for (let day = 1; day <= daysInMonth; day++) {
+      const kenat = new Kenat({ year: viewYear, month: viewMonth, day })
+      const dayHolidays = kenat.isHoliday()
+      if (dayHolidays.length > 0) {
+        holidays.push({
+          day,
+          name: dayHolidays[0].name,
+          dayGeez: arabicToGeez(day),
+        })
+      }
+    }
+    return holidays
+  }, [viewYear, viewMonth])
+
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col">
       {/* Header - Same as main site */}
@@ -292,14 +312,40 @@ export function CalendarPage({ onNavigate }: CalendarPageProps) {
         {/* Legend */}
         <div className="mt-4 flex items-center justify-center gap-6 text-xs text-gray-500">
           <div className="flex items-center gap-2">
-            <span className="w-3 h-3 rounded bg-teal-500"></span>
+            <span className="w-3 h-3 rounded-full bg-teal-500"></span>
             <span>Today</span>
           </div>
           <div className="flex items-center gap-2">
-            <span className="w-3 h-3 rounded bg-amber-50 border border-amber-200"></span>
+            <span className="w-3 h-3 rounded-full bg-amber-500"></span>
             <span>Holiday</span>
           </div>
         </div>
+
+        {/* Holidays List */}
+        {monthHolidays.length > 0 && (
+          <div className="mt-4 bg-white rounded-xl border border-gray-100 overflow-hidden">
+            <div className="px-4 py-3 bg-amber-50 border-b border-amber-100">
+              <h3 className="text-sm font-medium text-amber-800">
+                Holidays in {calendarData.monthNameEnglish} ({calendarData.monthName})
+              </h3>
+            </div>
+            <ul className="divide-y divide-gray-100">
+              {monthHolidays.map((holiday) => (
+                <li key={holiday.day} className="px-4 py-3 flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <span className="w-2 h-2 rounded-full bg-amber-500"></span>
+                    <span className="text-sm text-gray-800 font-medium">{holiday.name}</span>
+                  </div>
+                  <div className="text-sm text-gray-500">
+                    <span className="text-teal-600 font-medium">{holiday.dayGeez}</span>
+                    <span className="mx-1">•</span>
+                    <span>{calendarData.monthNameEnglish} {holiday.day}</span>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
 
         {/* Info */}
         <div className="mt-6 p-4 bg-white rounded-xl border border-gray-100">
