@@ -357,18 +357,24 @@ export function CalendarPage({ onNavigate }: CalendarPageProps) {
           {/* RIGHT: Sidebar */}
           <div className="lg:w-72 shrink-0 space-y-4">
             {/* Ad Placeholder - Height matches month nav + month selector */}
-            <div className="bg-gradient-to-br from-gray-100 to-gray-50 rounded-xl border border-dashed border-gray-300 p-6 flex flex-col items-center justify-center min-h-[205px]">
-              <div className="text-gray-400 text-center">
-                <div className="w-10 h-10 mx-auto mb-2 rounded-lg bg-teal-50 flex items-center justify-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-teal-400">
-                    <rect width="18" height="18" x="3" y="3" rx="2"/>
-                    <path d="M3 9h18"/>
-                    <path d="M9 21V9"/>
-                  </svg>
-                </div>
-                <p className="text-xs font-medium uppercase tracking-wider text-teal-500">Your Ad Here</p>
-                <p className="text-[10px] text-gray-300 mt-1">270 × auto</p>
-              </div>
+            <div className="bg-white rounded-xl border-2 border-dashed border-gray-200 p-5 flex flex-col items-center justify-center min-h-[205px]">
+              <svg 
+                className="w-8 h-8 text-teal-400 mb-2" 
+                fill="none" 
+                viewBox="0 0 24 24" 
+                stroke="currentColor"
+              >
+                <path 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round" 
+                  strokeWidth={1.5} 
+                  d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" 
+                />
+              </svg>
+              <p className="text-sm font-medium text-teal-500 mb-0.5">Your Ad Here</p>
+              <p className="text-xs text-gray-400 text-center">
+                Support Ge'ez Calc by advertising
+              </p>
             </div>
 
             {/* Legend - Compact inline */}
@@ -432,6 +438,12 @@ export function CalendarPage({ onNavigate }: CalendarPageProps) {
                 The Ethiopian calendar has 13 months — 12 months of 30 days each, 
                 plus <strong>Pagume</strong> (ጳጉሜ), a 13th month of 5 or 6 days. 
                 The year is 7-8 years behind the Gregorian calendar.
+                <button 
+                  onClick={() => onNavigate('learn')}
+                  className="ml-2 text-teal-600 hover:text-teal-700 font-medium hover:underline"
+                >
+                  Learn more →
+                </button>
               </p>
             </div>
           </div>
