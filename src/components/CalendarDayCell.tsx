@@ -10,6 +10,8 @@ interface CalendarDayCellProps {
   isToday?: boolean
   /** Is this a holiday? */
   isHoliday?: boolean
+  /** Is this an official holiday? */
+  isOfficialHoliday?: boolean
   /** Holiday name if applicable */
   holidayName?: string
   /** Is this day in the current month? (for faded display of adjacent months) */
@@ -31,6 +33,7 @@ export function CalendarDayCell({
   gregorianDate,
   isToday = false,
   isHoliday = false,
+  isOfficialHoliday = false,
   holidayName,
   isCurrentMonth = true,
   onClick,
@@ -60,7 +63,8 @@ export function CalendarDayCell({
             ? 'bg-teal-500 text-white shadow-lg shadow-teal-500/30 ring-2 ring-teal-400' 
             : 'bg-white hover:bg-gray-50 border border-gray-100'
           }
-          ${isHoliday && !isToday ? 'bg-amber-50 border-amber-200 hover:bg-amber-100' : ''}
+          ${isHoliday && !isToday && isOfficialHoliday ? 'bg-amber-50/30 border-amber-200/50 hover:border-amber-500' : ''}
+          ${isHoliday && !isToday && !isOfficialHoliday ? 'bg-purple-50/30 border-purple-200/50 hover:border-purple-400' : ''}
         `}
       >
         {/* Arabic Numeral - Primary */}
@@ -91,7 +95,7 @@ export function CalendarDayCell({
         {isHoliday && (
           <span className={`
             absolute top-1 right-1 w-2 h-2 rounded-full
-            ${isToday ? 'bg-white' : 'bg-amber-500'}
+            ${isToday ? 'bg-white' : isOfficialHoliday ? 'bg-amber-500' : 'bg-purple-400'}
           `} />
         )}
       </button>

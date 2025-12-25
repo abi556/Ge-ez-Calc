@@ -13,7 +13,7 @@ const WEEKDAYS = {
 
 // Holiday English translations
 const HOLIDAY_TRANSLATIONS: Record<string, string> = {
-  // Fixed holidays
+  // Fixed holidays (Official)
   'እንቁጣጣሽ': 'Ethiopian New Year',
   'መስቀል': 'Finding of the True Cross',
   'ገና': 'Ethiopian Christmas',
@@ -23,23 +23,46 @@ const HOLIDAY_TRANSLATIONS: Record<string, string> = {
   'የአርበኞች ቀን': 'Patriots\' Victory Day',
   'የሰራተኞች ቀን': 'International Labour Day',
   'የብሔር ብሔረሰቦች ቀን': 'Nations, Nationalities, and Peoples\' Day',
-  // Movable Christian holidays
+  // Movable Christian holidays (Official)
+  'ስቅለት': 'Good Friday',
+  'ፋሲካ': 'Ethiopian Easter',
+  // Religious observances (Not official holidays)
   'ጾመ ነነዌ': 'Fast of Nineveh',
   'ዐቢይ ጾም': 'Great Lent',
   'ደብረ ዘይት': 'Mid-Lent Sunday',
   'ሆሳዕና': 'Palm Sunday',
-  'ስቅለት': 'Good Friday',
-  'ፋሲካ': 'Ethiopian Easter',
   'ርክበ ካህናት': 'Meeting of the Priests',
   'ዕርገት': 'Ascension',
   'ጰራቅሊጦስ': 'Pentecost',
   'ጾመ ሐዋርያት': 'Apostles\' Fast',
   'ጾመ ድኅነት': 'Fast of Salvation',
-  // Islamic holidays
+  // Islamic holidays (Official)
   'ዒድ አል ፈጥር': 'Eid al-Fitr',
   'ዒድ አል አድሐ': 'Eid al-Adha',
   'መውሊድ': 'Moulid',
 }
+
+// Official holidays (government/school recognized)
+const OFFICIAL_HOLIDAYS = new Set([
+  // Fixed Christian holidays
+  'እንቁጣጣሽ',
+  'መስቀል',
+  'ገና',
+  'ጥምቀት',
+  // National holidays
+  'የአድዋ ድል በዓል',
+  'የሰማዕታት ቀን',
+  'የአርበኞች ቀን',
+  'የሰራተኞች ቀን',
+  'የብሔር ብሔረሰቦች ቀን',
+  // Movable Christian holidays (official)
+  'ስቅለት',
+  'ፋሲካ',
+  // Islamic holidays
+  'ዒድ አል ፈጥር',
+  'ዒድ አል አድሐ',
+  'መውሊድ',
+])
 
 interface CalendarPageProps {
   onNavigate: (page: 'converter' | 'calendar' | 'learn' | 'dates') => void
@@ -124,6 +147,7 @@ export function CalendarPage({ onNavigate }: CalendarPageProps) {
       gregorianDate: string
       isToday: boolean
       isHoliday: boolean
+      isOfficialHoliday: boolean
       holidayName?: string
       isCurrentMonth: boolean
     } | null> = []
@@ -149,12 +173,16 @@ export function CalendarPage({ onNavigate }: CalendarPageProps) {
       
       const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
       
+      const holidayName = holidays.length > 0 ? holidays[0].name : undefined
+      const isOfficialHoliday = holidayName ? OFFICIAL_HOLIDAYS.has(holidayName) : false
+      
       days.push({
         ethiopianDay: day,
         gregorianDate: `${months[greg.month - 1]} ${greg.day}`,
         isToday: viewYear === today.year && viewMonth === today.month && day === today.day,
         isHoliday: holidays.length > 0,
-        holidayName: holidays.length > 0 ? holidays[0].name : undefined,
+        isOfficialHoliday,
+        holidayName,
         isCurrentMonth: true,
       })
     }
@@ -166,7 +194,7 @@ export function CalendarPage({ onNavigate }: CalendarPageProps) {
 
   // Get holidays for the current month
   const monthHolidays = useMemo(() => {
-    const holidays: Array<{ day: number, name: string, nameEnglish: string, dayGeez: string }> = []
+    const holidays: Array<{ day: number, name: string, nameEnglish: string, dayGeez: string, isOfficial: boolean }> = []
     const isLeap = new Kenat({ year: viewYear, month: 1, day: 1 }).isLeapYear()
     const daysInMonth = viewMonth === 13 ? (isLeap ? 6 : 5) : 30
 
@@ -180,11 +208,16 @@ export function CalendarPage({ onNavigate }: CalendarPageProps) {
           name: amharicName,
           nameEnglish: HOLIDAY_TRANSLATIONS[amharicName] || '',
           dayGeez: arabicToGeez(day),
+          isOfficial: OFFICIAL_HOLIDAYS.has(amharicName),
         })
       }
     }
     return holidays
   }, [viewYear, viewMonth])
+
+  // Separate holidays and observances
+  const officialHolidays = useMemo(() => monthHolidays.filter(h => h.isOfficial), [monthHolidays])
+  const observances = useMemo(() => monthHolidays.filter(h => !h.isOfficial), [monthHolidays])
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col">
@@ -343,6 +376,7 @@ export function CalendarPage({ onNavigate }: CalendarPageProps) {
                       gregorianDate={day.gregorianDate}
                       isToday={day.isToday}
                       isHoliday={day.isHoliday}
+                      isOfficialHoliday={day.isOfficialHoliday}
                       holidayName={day.holidayName}
                       isCurrentMonth={day.isCurrentMonth}
                     />
@@ -357,18 +391,24 @@ export function CalendarPage({ onNavigate }: CalendarPageProps) {
           {/* RIGHT: Sidebar */}
           <div className="lg:w-72 shrink-0 space-y-4">
             {/* Ad Placeholder - Height matches month nav + month selector */}
-            <div className="bg-gradient-to-br from-gray-100 to-gray-50 rounded-xl border border-dashed border-gray-300 p-6 flex flex-col items-center justify-center min-h-[205px]">
-              <div className="text-gray-400 text-center">
-                <div className="w-10 h-10 mx-auto mb-2 rounded-lg bg-teal-50 flex items-center justify-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-teal-400">
-                    <rect width="18" height="18" x="3" y="3" rx="2"/>
-                    <path d="M3 9h18"/>
-                    <path d="M9 21V9"/>
-                  </svg>
-                </div>
-                <p className="text-xs font-medium uppercase tracking-wider text-teal-500">Your Ad Here</p>
-                <p className="text-[10px] text-gray-300 mt-1">270 × auto</p>
-              </div>
+            <div className="bg-white rounded-xl border-2 border-dashed border-gray-200 p-5 flex flex-col items-center justify-center min-h-[205px]">
+              <svg 
+                className="w-8 h-8 text-teal-400 mb-2" 
+                fill="none" 
+                viewBox="0 0 24 24" 
+                stroke="currentColor"
+              >
+                <path 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round" 
+                  strokeWidth={1.5} 
+                  d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" 
+                />
+              </svg>
+              <p className="text-sm font-medium text-teal-500 mb-0.5">Your Ad Here</p>
+              <p className="text-xs text-gray-400 text-center">
+                Support Ge'ez Calc by advertising
+              </p>
             </div>
 
             {/* Legend - Compact inline */}
@@ -381,34 +421,75 @@ export function CalendarPage({ onNavigate }: CalendarPageProps) {
                 <span className="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
                 <span>Holiday</span>
               </div>
+              <div className="flex items-center gap-1.5">
+                <span className="w-2.5 h-2.5 rounded-full bg-purple-400"></span>
+                <span>Observance</span>
+              </div>
             </div>
 
-            {/* Holidays List - Always visible */}
+            {/* Holidays & Observances List */}
             <div className="bg-white rounded-xl border border-gray-100 overflow-hidden">
               <div className="px-4 py-3 bg-amber-50 border-b border-amber-100">
                 <h3 className="text-sm font-medium text-amber-800">
-                  Holidays in {calendarData.monthName}
+                  Holidays & Observances in {calendarData.monthName}
                 </h3>
               </div>
               {monthHolidays.length > 0 ? (
-                <ul className="divide-y divide-gray-100">
-                  {monthHolidays.map((holiday) => (
-                    <li key={holiday.day} className="px-4 py-3">
-                      <div className="flex items-center gap-2">
-                        <span className="w-2 h-2 rounded-full bg-amber-500 shrink-0 mt-1"></span>
-                        <div>
-                          <span className="text-sm text-gray-800 font-medium block">{holiday.name}</span>
-                          <span className="text-xs text-gray-400 block">{holiday.nameEnglish}</span>
-                        </div>
-                      </div>
-                      <div className="text-xs text-gray-500 pl-4 mt-1">
-                        <span className="text-teal-600 font-medium">{holiday.dayGeez}</span>
-                        <span className="mx-1">•</span>
-                        <span>{calendarData.monthNameEnglish} {holiday.day}</span>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
+                <div>
+                  {/* Official Holidays Section */}
+                  {officialHolidays.length > 0 && (
+                    <div className="px-4 py-2 bg-gray-50 border-b border-gray-100">
+                      <p className="text-xs font-medium text-gray-600 uppercase tracking-wide">Official Holidays</p>
+                    </div>
+                  )}
+                  {officialHolidays.length > 0 && (
+                    <ul className="divide-y divide-gray-100">
+                      {officialHolidays.map((holiday) => (
+                        <li key={holiday.day} className="px-4 py-3">
+                          <div className="flex items-center gap-2">
+                            <span className="w-2 h-2 rounded-full bg-amber-500 shrink-0 mt-1"></span>
+                            <div>
+                              <span className="text-sm text-gray-800 font-medium block">{holiday.name}</span>
+                              <span className="text-xs text-gray-400 block">{holiday.nameEnglish}</span>
+                            </div>
+                          </div>
+                          <div className="text-xs text-gray-500 pl-4 mt-1">
+                            <span className="text-teal-600 font-medium">{holiday.dayGeez}</span>
+                            <span className="mx-1">•</span>
+                            <span>{calendarData.monthNameEnglish} {holiday.day}</span>
+                          </div>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+
+                  {/* Religious Observances Section */}
+                  {observances.length > 0 && (
+                    <div className="px-4 py-2 bg-gray-50 border-b border-gray-100">
+                      <p className="text-xs font-medium text-gray-600 uppercase tracking-wide">Religious Observances</p>
+                    </div>
+                  )}
+                  {observances.length > 0 && (
+                    <ul className="divide-y divide-gray-100">
+                      {observances.map((observance) => (
+                        <li key={observance.day} className="px-4 py-3">
+                          <div className="flex items-center gap-2">
+                            <span className="w-2 h-2 rounded-full bg-purple-400 shrink-0 mt-1"></span>
+                            <div>
+                              <span className="text-sm text-gray-800 font-medium block">{observance.name}</span>
+                              <span className="text-xs text-gray-400 block">{observance.nameEnglish}</span>
+                            </div>
+                          </div>
+                          <div className="text-xs text-gray-500 pl-4 mt-1">
+                            <span className="text-teal-600 font-medium">{observance.dayGeez}</span>
+                            <span className="mx-1">•</span>
+                            <span>{calendarData.monthNameEnglish} {observance.day}</span>
+                          </div>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
               ) : (
                 <div className="px-4 py-6 text-center">
                   <p className="text-sm text-gray-500">No holidays this month</p>
@@ -432,6 +513,12 @@ export function CalendarPage({ onNavigate }: CalendarPageProps) {
                 The Ethiopian calendar has 13 months — 12 months of 30 days each, 
                 plus <strong>Pagume</strong> (ጳጉሜ), a 13th month of 5 or 6 days. 
                 The year is 7-8 years behind the Gregorian calendar.
+                <button 
+                  onClick={() => onNavigate('learn')}
+                  className="ml-2 text-teal-600 hover:text-teal-700 font-medium hover:underline"
+                >
+                  Learn more →
+                </button>
               </p>
             </div>
           </div>
