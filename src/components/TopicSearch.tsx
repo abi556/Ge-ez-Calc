@@ -7,7 +7,7 @@ interface TopicSearchProps {
   selectedTopicId: string
 }
 
-export function TopicSearch({ topics, onSelectTopic, selectedTopicId }: TopicSearchProps) {
+export function TopicSearch({ topics }: TopicSearchProps) {
   const [searchQuery, setSearchQuery] = useState('')
   const [isSearching, setIsSearching] = useState(false)
 

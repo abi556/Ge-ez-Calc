@@ -26,9 +26,9 @@ export function ContentBlock({ block }: ContentBlockProps) {
     case 'list':
       return (
         <ul className="list-disc list-inside space-y-2 text-sm text-gray-600 ml-2">
-          {block.data.items.map((item: string, i: number) => (
+          {block.data.items?.map((item: string, i: number) => (
             <li key={i}>{item}</li>
-          ))}
+          )) || []}
         </ul>
       )
 
@@ -38,18 +38,18 @@ export function ContentBlock({ block }: ContentBlockProps) {
           <table className="min-w-full border border-gray-200 rounded">
             <thead className="bg-gray-50">
               <tr>
-                {block.data.headers.map((header: string, i: number) => (
+                {block.data.headers?.map((header: string, i: number) => (
                   <th
                     key={i}
                     className="px-4 py-3 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider border-b border-gray-200"
                   >
                     {header}
                   </th>
-                ))}
+                )) || []}
               </tr>
             </thead>
             <tbody className="bg-white divide-y divide-gray-200">
-              {block.data.rows.map((row: string[], i: number) => (
+              {block.data.rows?.map((row: string[], i: number) => (
                 <tr key={i} className="hover:bg-gray-50">
                   {row.map((cell: string, j: number) => (
                     <td
@@ -67,19 +67,19 @@ export function ContentBlock({ block }: ContentBlockProps) {
       )
 
     case 'example':
-      return <ExampleBlock text={block.data.text} />
+      return <ExampleBlock text={block.data.text || ''} />
 
     case 'key-points':
       return (
         <div className="bg-primary-50 border-l-4 border-primary-500 p-4 rounded-r-lg my-4">
           <h5 className="font-semibold text-primary-800 mb-2">Key Points</h5>
           <ul className="space-y-1 text-sm text-primary-700">
-            {block.data.points.map((point: string, i: number) => (
+            {block.data.points?.map((point: string, i: number) => (
               <li key={i} className="flex items-start gap-2">
                 <span className="text-primary-500 mt-0.5">•</span>
                 <span>{point}</span>
               </li>
-            ))}
+            )) || []}
           </ul>
         </div>
       )

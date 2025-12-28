@@ -6,7 +6,7 @@ interface PartSectionProps {
   topicId: string
 }
 
-export function PartSection({ part, topicId }: PartSectionProps) {
+export function PartSection({ part }: PartSectionProps) {
   return (
     <div className="bg-white rounded border border-gray-200 overflow-hidden">
       {/* Part Header */}
