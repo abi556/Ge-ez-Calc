@@ -1,8 +1,10 @@
-import { useMemo, useState } from 'react'
+import { useMemo, useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import Kenat, { monthNames } from 'kenat'
-import { TodayWidget } from './TodayWidget'
+import { Header } from './Header'
 import { arabicToGeez } from '../utils/geezConverter'
 import { CalendarIcon, CheckIcon, ClipboardIcon } from './Icons'
+import { updateSEO } from '../utils/seo'
 
 // Evangelist names (4-year cycle)
 const EVANGELISTS = {
@@ -28,9 +30,7 @@ const GREG_MONTHS = [
   'December',
 ]
 
-interface DateConverterPageProps {
-  onNavigate: (page: 'converter' | 'calendar' | 'learn' | 'dates') => void
-}
+// No props needed - routing handled by React Router
 
 /**
  * DateConverterPage - Gregorian ↔ Ethiopian Date Converter
@@ -41,7 +41,19 @@ interface DateConverterPageProps {
  * - Rich result display with Amharic names and Ge'ez numerals
  * - Evangelist year display
  */
-export function DateConverterPage({ onNavigate }: DateConverterPageProps) {
+export function DateConverterPage() {
+  // SEO Optimization
+  useEffect(() => {
+    updateSEO({
+      title: 'Ethiopian Date Converter | Convert Ethiopian Calendar to Gregorian Date',
+      description: 'Free Ethiopian date converter. Convert Ethiopian calendar dates to Gregorian dates and vice versa. Ethiopian calendar date conversion tool with accurate calculations. Learn about Ethiopian calendar system and date conversion.',
+      keywords: 'ethiopian date converter, date conversion, ethiopian calendar to gregorian, gregorian to ethiopian, ethiopian date, convert ethiopian date, ethiopian calendar converter, ethiopian date calculator, ethiopian calendar dates, date converter ethiopian',
+      // TODO: Replace with actual domain when purchased - temporary Vercel URL
+      canonicalUrl: 'https://ge-ez-calc.vercel.app/dates',
+      ogType: 'website',
+    })
+  }, [])
+
   // Conversion direction
   const [direction, setDirection] = useState<'toEthiopian' | 'toGregorian'>(
     'toEthiopian',
@@ -133,54 +145,15 @@ export function DateConverterPage({ onNavigate }: DateConverterPageProps) {
   }
 
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col">
-      {/* Header - Full width */}
-      <header className="bg-gray-800 text-white">
-        <div className="px-6 py-3 flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <div className="flex items-center gap-2">
-              <span className="text-teal-400 text-xl font-semibold">ግ</span>
-              <h1 className="text-lg font-medium tracking-tight">Ge'ez Calc</h1>
-            </div>
-            <div className="hidden sm:block border-l border-gray-700 pl-4">
-              <TodayWidget variant="header" />
-            </div>
-          </div>
-          <nav className="flex items-center gap-4 sm:gap-6 text-sm">
-            <button
-              onClick={() => onNavigate('calendar')}
-              className="text-gray-400 hover:text-teal-400 transition-colors"
-            >
-              Calendar
-            </button>
-            <button
-              onClick={() => onNavigate('dates')}
-              className="text-white hover:text-teal-400 transition-colors"
-            >
-              Dates
-            </button>
-            <button
-              onClick={() => onNavigate('converter')}
-              className="text-gray-400 hover:text-teal-400 transition-colors"
-            >
-              Numbers
-            </button>
-            <button
-              onClick={() => onNavigate('learn')}
-              className="text-gray-400 hover:text-teal-400 transition-colors"
-            >
-              Learn
-            </button>
-          </nav>
-        </div>
-      </header>
+    <div className="min-h-screen flex flex-col" style={{ backgroundColor: 'var(--background)' }}>
+      <Header />
 
       {/* Main Content */}
       <main className="flex-1 p-4 lg:py-6 lg:px-8">
         <div className="w-full">
           {/* Page Title */}
           <div className="text-center mb-6">
-            <h2 className="text-3xl font-semibold text-gray-800 tracking-tight">
+            <h2 className="text-2xl font-semibold text-gray-800 tracking-tight">
               Date Converter
             </h2>
             <p className="text-sm text-gray-500 mt-2">
@@ -193,14 +166,14 @@ export function DateConverterPage({ onNavigate }: DateConverterPageProps) {
             {/* Left Column - Main Converter */}
             <div className="flex-1">
               {/* Converter Card */}
-              <div className="bg-white rounded-2xl shadow-lg shadow-gray-200/50 overflow-hidden">
+              <div className="bg-white rounded border border-gray-200 overflow-hidden">
                 {/* Direction Tabs */}
                 <div className="flex border-b border-gray-100">
                   <button
                     onClick={() => setDirection('toEthiopian')}
                     className={`flex-1 py-4 text-sm font-medium transition-colors ${
                       direction === 'toEthiopian'
-                        ? 'text-teal-600 border-b-2 border-teal-600 bg-teal-50/50'
+                        ? 'text-primary-600 border-b-2 border-primary-600 bg-primary-50/50'
                         : 'text-gray-500 hover:text-gray-700 hover:bg-gray-50'
                     }`}
                   >
@@ -210,7 +183,7 @@ export function DateConverterPage({ onNavigate }: DateConverterPageProps) {
                     onClick={() => setDirection('toGregorian')}
                     className={`flex-1 py-4 text-sm font-medium transition-colors ${
                       direction === 'toGregorian'
-                        ? 'text-teal-600 border-b-2 border-teal-600 bg-teal-50/50'
+                        ? 'text-primary-600 border-b-2 border-primary-600 bg-primary-50/50'
                         : 'text-gray-500 hover:text-gray-700 hover:bg-gray-50'
                     }`}
                   >
@@ -237,7 +210,7 @@ export function DateConverterPage({ onNavigate }: DateConverterPageProps) {
                             <select
                               value={gregMonth}
                               onChange={(e) => setGregMonth(Number(e.target.value))}
-                              className="w-full px-3 py-2 text-sm text-gray-800 bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500"
+                              className="w-full px-3 py-2 text-sm text-gray-800 bg-white border border-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500"
                             >
                               {GREG_MONTHS.map((month, i) => (
                                 <option key={month} value={i + 1} className="text-gray-800">
@@ -254,7 +227,7 @@ export function DateConverterPage({ onNavigate }: DateConverterPageProps) {
                             <select
                               value={gregDay}
                               onChange={(e) => setGregDay(Number(e.target.value))}
-                              className="w-full px-3 py-2 text-sm text-gray-800 bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500"
+                              className="w-full px-3 py-2 text-sm text-gray-800 bg-white border border-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500"
                             >
                               {Array.from(
                                 { length: getDaysInGregMonth(gregYear, gregMonth) },
@@ -275,14 +248,14 @@ export function DateConverterPage({ onNavigate }: DateConverterPageProps) {
                               onChange={(e) => setGregYear(Number(e.target.value))}
                               min="1900"
                               max="2100"
-                              className="w-full px-3 py-2 text-sm text-gray-800 bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500"
+                              className="w-full px-3 py-2 text-sm text-gray-800 bg-white border border-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500"
                             />
                           </div>
                         </div>
                       </div>
 
                       {/* Result */}
-                      <div className="bg-linear-to-br from-teal-50 to-gray-50 rounded-xl p-5 border border-teal-100 h-[220px] flex items-center justify-center">
+                      <div className="bg-primary-50 rounded p-5 border border-primary-200 h-[220px] flex items-center justify-center">
                         <div className="text-center w-full">
                           <p className="text-xs text-gray-500 uppercase tracking-wider mb-2">
                             Ethiopian Date
@@ -291,7 +264,7 @@ export function DateConverterPage({ onNavigate }: DateConverterPageProps) {
                           {ethiopianResult ? (
                             <>
                               {/* Ge'ez Display */}
-                              <p className="text-3xl text-teal-700 mb-1">
+                              <p className="text-2xl text-primary-700 mb-1">
                                 {ethiopianResult.monthNameAmharic} {ethiopianResult.dayGeez}
                               </p>
                               <p className="text-xl text-gray-600 mb-3">
@@ -306,14 +279,14 @@ export function DateConverterPage({ onNavigate }: DateConverterPageProps) {
                               </p>
 
                               {/* Evangelist */}
-                              <div className="mt-4 pt-4 border-t border-teal-100">
+                              <div className="mt-4 pt-4 border-t border-primary-100">
                                 <p className="text-xs text-gray-500">
                                   Year of{' '}
-                                  <span className="font-medium text-teal-600">
+                                  <span className="font-medium text-primary-600">
                                     {ethiopianResult.evangelist.english}
                                   </span>
                                   <span className="text-gray-400 mx-1">•</span>
-                                  <span className="text-teal-600">
+                                  <span className="text-primary-600">
                                     {ethiopianResult.evangelist.amharic}
                                   </span>
                                 </p>
@@ -342,7 +315,7 @@ export function DateConverterPage({ onNavigate }: DateConverterPageProps) {
                             <select
                               value={ethMonth}
                               onChange={(e) => setEthMonth(Number(e.target.value))}
-                              className="w-full px-3 py-2 text-sm text-gray-800 bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500"
+                              className="w-full px-3 py-2 text-sm text-gray-800 bg-white border border-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500"
                             >
                               {monthNames.amharic.map((name: string, i: number) => (
                                 <option key={i} value={i + 1} className="text-gray-800">
@@ -357,7 +330,7 @@ export function DateConverterPage({ onNavigate }: DateConverterPageProps) {
                             <select
                               value={ethDay}
                               onChange={(e) => setEthDay(Number(e.target.value))}
-                              className="w-full px-3 py-2 text-sm text-gray-800 bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500"
+                              className="w-full px-3 py-2 text-sm text-gray-800 bg-white border border-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500"
                             >
                               {Array.from({ length: getDaysInEthMonth(ethYear, ethMonth) }, (_, i) => (
                                 <option key={i + 1} value={i + 1} className="text-gray-800">
@@ -375,14 +348,14 @@ export function DateConverterPage({ onNavigate }: DateConverterPageProps) {
                               onChange={(e) => setEthYear(Number(e.target.value))}
                               min="1900"
                               max="2100"
-                              className="w-full px-3 py-2 text-sm text-gray-800 bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500"
+                              className="w-full px-3 py-2 text-sm text-gray-800 bg-white border border-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-primary-500/20 focus:border-primary-500"
                             />
                           </div>
                         </div>
                       </div>
 
                       {/* Result */}
-                      <div className="bg-linear-to-br from-teal-50 to-gray-50 rounded-xl p-5 border border-teal-100 h-[220px] flex items-center justify-center">
+                      <div className="bg-primary-50 rounded p-5 border border-primary-200 h-[220px] flex items-center justify-center">
                         <div className="text-center w-full">
                           <p className="text-xs text-gray-500 uppercase tracking-wider mb-2">
                             Gregorian Date
@@ -391,7 +364,7 @@ export function DateConverterPage({ onNavigate }: DateConverterPageProps) {
                           {gregorianResult ? (
                             <>
                               {/* Main Display */}
-                              <p className="text-3xl text-teal-700 mb-1">
+                              <p className="text-2xl text-primary-700 mb-1">
                                 {gregorianResult.monthName} {gregorianResult.day}
                               </p>
                               <p className="text-xl text-gray-600 mb-3">{gregorianResult.year}</p>
@@ -400,8 +373,8 @@ export function DateConverterPage({ onNavigate }: DateConverterPageProps) {
                               <p className="text-sm text-gray-400">International Calendar</p>
 
                               {/* Full Formatted Date */}
-                              <div className="mt-4 pt-4 border-t border-teal-100">
-                                <p className="text-sm text-teal-600 font-medium">
+                              <div className="mt-4 pt-4 border-t border-primary-100">
+                                <p className="text-sm text-primary-600 font-medium">
                                   {gregorianResult.formatted}
                                 </p>
                               </div>
@@ -427,7 +400,7 @@ export function DateConverterPage({ onNavigate }: DateConverterPageProps) {
                         }
                       }}
                       disabled={!(ethiopianResult || gregorianResult)}
-                      className="py-3 px-8 bg-teal-500 hover:bg-teal-600 disabled:bg-gray-200 disabled:text-gray-400 text-white rounded-xl text-sm font-medium transition-colors flex items-center justify-center gap-2"
+                      className="py-3 px-8 bg-primary-500 hover:bg-primary-600 disabled:bg-gray-200 disabled:text-gray-400 text-white rounded text-sm font-medium transition-colors flex items-center justify-center gap-2"
                     >
                       {copyFeedback ? (
                         <>
@@ -449,44 +422,44 @@ export function DateConverterPage({ onNavigate }: DateConverterPageProps) {
               {/* Top Row: Facts + Evangelist Year side by side */}
               <div className="flex gap-4">
                 {/* Quick Facts Card */}
-                <div className="flex-1 bg-white rounded-xl border border-gray-100 p-5 shadow-sm">
+                <div className="flex-1 bg-white rounded border border-gray-200 p-5">
                   <h3 className="text-sm font-semibold text-gray-800 mb-4 flex items-center gap-2">
-                    <CalendarIcon size={18} className="text-teal-500" />
+                    <CalendarIcon size={18} className="text-primary-500" />
                     Quick Facts
                   </h3>
                   <ul className="space-y-2.5 text-sm text-gray-600">
                     <li className="flex items-start gap-2">
-                      <span className="text-teal-500 mt-0.5">•</span>
+                      <span className="text-primary-500 mt-0.5">•</span>
                       <span>7-8 years behind Gregorian</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-teal-500 mt-0.5">•</span>
+                      <span className="text-primary-500 mt-0.5">•</span>
                       <span>13 months (12×30 + Pagume)</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-teal-500 mt-0.5">•</span>
+                      <span className="text-primary-500 mt-0.5">•</span>
                       <span>New Year: Sept 11 or 12</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <span className="text-teal-500 mt-0.5">•</span>
+                      <span className="text-primary-500 mt-0.5">•</span>
                       <span>Pagume: 5-6 days</span>
                     </li>
                   </ul>
-                  <button
-                    onClick={() => onNavigate('learn')}
-                    className="mt-3 text-xs text-teal-600 hover:text-teal-700 font-medium hover:underline"
+                  <Link
+                    to="/learn"
+                    className="mt-3 text-xs text-primary-600 hover:text-primary-700 font-medium hover:underline inline-block"
                   >
                     Learn more →
-                  </button>
+                  </Link>
                 </div>
 
                 {/* Year Cycle Card */}
-                <div className="flex-1 bg-white rounded-xl border border-gray-100 p-5 shadow-sm">
+                <div className="flex-1 bg-white rounded border border-gray-200 p-5">
                   <h3 className="text-sm font-semibold text-gray-800 mb-4">Evangelist Year</h3>
                   <div className="grid grid-cols-2 gap-2">
                     {Object.entries(EVANGELISTS).map(([key, { amharic, english }]) => (
-                      <div key={key} className="bg-gray-50 rounded-lg p-2.5 text-center">
-                        <p className="font-medium text-teal-600 text-sm">{english}</p>
+                      <div key={key} className="bg-gray-50 rounded p-2.5 text-center">
+                        <p className="font-medium text-primary-600 text-sm">{english}</p>
                         <p className="text-gray-500 text-xs">{amharic}</p>
                       </div>
                     ))}
@@ -496,9 +469,12 @@ export function DateConverterPage({ onNavigate }: DateConverterPageProps) {
               </div>
 
               {/* Bottom: Ad Placeholder (full width) */}
-              <div className="bg-white rounded-xl border-2 border-dashed border-gray-200 flex flex-col items-center justify-center p-5 flex-1 min-h-[140px]">
+              <Link
+                to="/support"
+                className="bg-white rounded border-2 border-dashed border-gray-300 flex flex-col items-center justify-center p-5 flex-1 min-h-[140px] hover:border-primary-400 hover:bg-primary-50/30 transition-colors group cursor-pointer"
+              >
                 <svg
-                  className="w-9 h-9 text-teal-400 mb-2"
+                  className="w-9 h-9 text-primary-400 mb-2 group-hover:text-primary-500 transition-colors"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -510,16 +486,16 @@ export function DateConverterPage({ onNavigate }: DateConverterPageProps) {
                     d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"
                   />
                 </svg>
-                <p className="text-sm font-medium text-teal-500 mb-0.5">Your Ad Here</p>
-                <p className="text-xs text-gray-400 text-center">Support Ge'ez Calc by advertising</p>
-              </div>
+                <p className="text-sm font-medium text-primary-500 mb-0.5 group-hover:text-primary-600 transition-colors">Your Ad Here</p>
+                <p className="text-xs text-gray-400 text-center group-hover:text-gray-500 transition-colors">Support Ge'ez Calc by advertising</p>
+              </Link>
             </div>
           </div>
 
           {/* Info Card - Mobile Only (desktop info is in sidebar) */}
-          <div className="lg:hidden mt-6 p-4 bg-white rounded-xl border border-gray-100 shadow-sm">
+          <div className="lg:hidden mt-6 p-4 bg-white rounded border border-gray-200">
             <div className="flex items-start gap-3">
-              <CalendarIcon size={20} className="text-teal-500 shrink-0" />
+              <CalendarIcon size={20} className="text-primary-500 shrink-0" />
               <p className="text-sm text-gray-600 leading-relaxed">
                 <span className="font-medium text-gray-800">Calendar Difference:</span> The Ethiopian
                 calendar is 7-8 years behind the Gregorian calendar. It has 13 months — 12 months of
@@ -532,8 +508,30 @@ export function DateConverterPage({ onNavigate }: DateConverterPageProps) {
       </main>
 
       {/* Footer */}
-      <footer className="py-4 text-center text-sm text-gray-400 border-t border-gray-200">
-        <p>Ge'ez Calc — Discover Ethiopian Heritage</p>
+      <footer className="py-4 px-4 lg:px-6 text-sm text-gray-400 border-t border-gray-200">
+        <div className="flex items-center justify-between">
+          <p>Ge'ez Calc — Ethiopian</p>
+          <div className="flex items-center gap-4">
+            <Link
+              to="/report"
+              className="inline-flex items-center gap-1.5 text-primary-500 hover:text-primary-600 transition-colors font-medium"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              Report
+            </Link>
+            <Link
+              to="/support"
+              className="inline-flex items-center gap-1.5 text-primary-500 hover:text-primary-600 transition-colors font-medium"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+              </svg>
+  Support
+            </Link>
+          </div>
+        </div>
       </footer>
     </div>
   )

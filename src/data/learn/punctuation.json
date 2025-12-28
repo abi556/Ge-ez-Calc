@@ -1,0 +1,107 @@
+{
+  "id": "punctuation",
+  "title": "Ge'ez Punctuation Guide",
+  "description": "Learn about the unique punctuation marks used in Ge'ez script and manuscript writing.",
+  "category": "additional",
+  "estimatedTime": "6 min read",
+  "parts": [
+    {
+      "id": "part-1",
+      "title": "The Dots of Ge'ez: Understanding Manuscript Punctuation",
+      "order": 1,
+      "content": [
+        {
+          "type": "paragraph",
+          "data": {
+            "text": "The Ge'ez script punctuation system represents a significant development from its predecessor script, which relied solely on a vertical bar (|) to separate words. Ge'ez introduced an extensive and original punctuation framework specifically designed for manuscript writing in Ethiopian and Eritrean languages."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "text": "Essential Punctuation Marks"
+          }
+        },
+        {
+          "type": "table",
+          "data": {
+            "headers": ["Mark", "Name", "Function"],
+            "rows": [
+              ["፡", "Word separator", "Denotes spaces between words"],
+              ["።", "Full stop", "Marks the end of sentences or complete thoughts"],
+              ["፣", "Comma", "Separates clauses or phrases within sentences"],
+              ["፤", "Semicolon", "Indicates a stronger pause than a comma but weaker than a full stop"],
+              ["፥", "Colon", "Used for lists or explanations"],
+              ["፦", "Preface colon", "Used in introductory text"],
+              ["፨", "Paragraph separator", "Marks major breaks in text"]
+            ]
+          }
+        },
+        {
+          "type": "paragraph",
+          "data": {
+            "text": "The word separator (፡) maintains particular importance as it functions similarly to Western spacing but remains as an explicit punctuation symbol rather than implicit whitespace. When writing manuscripts, the word separator appears between individual words rather than relying on variable spacing."
+          }
+        },
+        {
+          "type": "key-points",
+          "data": {
+            "points": [
+              "Word separator (፡) functions like Western spacing",
+              "Each mark serves a distinct purpose",
+              "System developed from earlier scripts that only had vertical bar (|) separator"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "part-2",
+      "title": "From Vertical Bars to Dots: The Evolution of Ge'ez Punctuation",
+      "order": 2,
+      "content": [
+        {
+          "type": "paragraph",
+          "data": {
+            "text": "The predecessor script had no punctuation except a vertical bar (|) for spaces between words. Ge'ez developed an extensive punctuation system with original symbols, replacing the vertical bar with a colon (:) and creating entirely new marks for full stop, paragraph separator, comma, colon, semicolon, and preface colon."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "text": "Historical Development"
+          }
+        },
+        {
+          "type": "paragraph",
+          "data": {
+            "text": "The vertical bar separator (|) from earlier scripts was replaced with a colon (:) in Ge'ez, though the modern word separator ፡ evolved as the standard marking. Beyond these basic marks, Ge'ez developed entirely original symbols including the full stop (።), paragraph separator (፨), comma (፣), colon (፥), semicolon (፤), and preface colon (፦)."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "text": "Modern Standardization"
+          }
+        },
+        {
+          "type": "paragraph",
+          "data": {
+            "text": "The Unicode Standard for Ethiopic (Ge'ez) script now includes these punctuation marks within the codepoint ranges U+1200 to U+137F (decimal 4608–4991), ensuring consistent representation across digital and manuscript contexts. This standardization preserves the original punctuation conventions while enabling modern typographic consistency."
+          }
+        },
+        {
+          "type": "key-points",
+          "data": {
+            "points": [
+              "Ge'ez created original punctuation symbols",
+              "System designed specifically for manuscript writing",
+              "Now standardized in Unicode for digital use"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
+

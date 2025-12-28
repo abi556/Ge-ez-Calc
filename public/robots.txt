@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# TODO: Replace with actual domain when purchased - temporary Vercel URL
+Sitemap: https://ge-ez-calc.vercel.app/sitemap.xml
+

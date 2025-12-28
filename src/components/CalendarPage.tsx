@@ -1,9 +1,11 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import Kenat, { monthNames } from 'kenat'
 import { CalendarDayCell } from './CalendarDayCell'
-import { TodayWidget } from './TodayWidget'
+import { Header } from './Header'
 import { arabicToGeez } from '../utils/geezConverter'
 import { CalendarIcon } from './Icons'
+import { updateSEO } from '../utils/seo'
 
 // Weekday headers
 const WEEKDAYS = {
@@ -64,10 +66,6 @@ const OFFICIAL_HOLIDAYS = new Set([
   'መውሊድ',
 ])
 
-interface CalendarPageProps {
-  onNavigate: (page: 'converter' | 'calendar' | 'learn' | 'dates') => void
-}
-
 /**
  * CalendarPage - Full Ethiopian calendar view
  * 
@@ -79,7 +77,33 @@ interface CalendarPageProps {
  * - Today highlighting
  * - Holiday indicators
  */
-export function CalendarPage({ onNavigate }: CalendarPageProps) {
+export function CalendarPage() {
+  // SEO Optimization
+  useEffect(() => {
+    updateSEO({
+      title: 'Ethiopian Calendar 2026 | Ge\'ez Calendar Converter - Free Online Tool',
+      description: 'Free Ethiopian calendar 2026 with holidays. Convert Ethiopian calendar dates to Gregorian. View Ethiopian months, holidays, and observances. Learn about Ge\'ez calendar system, Ethiopian timekeeping, and traditional Ethiopian calendar.',
+      keywords: 'ethiopian calendar, geez calendar, ethiopian calendar 2026, ethiopian calendar converter, ethiopian calendar dates, ethiopian holidays, ethiopian months, learn about ethiopian calendar, ethiopian calendar system, amharic calendar, ethiopian time system, ethiopian calendar online, free ethiopian calendar',
+      // TODO: Replace with actual domain when purchased - temporary Vercel URL
+      canonicalUrl: 'https://ge-ez-calc.vercel.app/',
+      ogType: 'website',
+      structuredData: {
+        '@context': 'https://schema.org',
+        '@type': 'WebApplication',
+        name: 'Ethiopian Calendar Converter',
+        applicationCategory: 'UtilityApplication',
+        description: 'Free Ethiopian calendar with holidays, date conversion, and educational content about Ethiopian calendar system.',
+        // TODO: Replace with actual domain when purchased - temporary Vercel URL
+        url: 'https://ge-ez-calc.vercel.app/',
+        offers: {
+          '@type': 'Offer',
+          price: '0',
+          priceCurrency: 'USD',
+        },
+      },
+    })
+  }, [])
+
   // Get today's Ethiopian date
   const today = useMemo(() => {
     const kenat = new Kenat()
@@ -220,48 +244,8 @@ export function CalendarPage({ onNavigate }: CalendarPageProps) {
   const observances = useMemo(() => monthHolidays.filter(h => !h.isOfficial), [monthHolidays])
 
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col">
-      {/* Header - Full width */}
-      <header className="bg-gray-800 text-white">
-        <div className="px-6 py-3 flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <div className="flex items-center gap-2">
-              <span className="text-teal-400 text-xl font-semibold">ግ</span>
-              <h1 className="text-lg font-medium tracking-tight">Ge'ez Calc</h1>
-            </div>
-            {/* Today's Date in Header - Subtle */}
-            <div className="hidden sm:block border-l border-gray-700 pl-4">
-              <TodayWidget variant="header" />
-            </div>
-          </div>
-          <nav className="flex items-center gap-4 sm:gap-6 text-sm">
-            <button 
-              onClick={() => onNavigate('calendar')}
-              className="text-white hover:text-teal-400 transition-colors"
-            >
-              Calendar
-            </button>
-            <button 
-              onClick={() => onNavigate('dates')}
-              className="text-gray-400 hover:text-teal-400 transition-colors"
-            >
-              Dates
-            </button>
-            <button 
-              onClick={() => onNavigate('converter')}
-              className="text-gray-400 hover:text-teal-400 transition-colors"
-            >
-              Numbers
-            </button>
-            <button 
-              onClick={() => onNavigate('learn')}
-              className="text-gray-400 hover:text-teal-400 transition-colors"
-            >
-              Learn
-            </button>
-          </nav>
-        </div>
-      </header>
+    <div className="min-h-screen flex flex-col" style={{ backgroundColor: 'var(--background)' }}>
+      <Header />
 
       {/* Main Content - Two Column Layout */}
       <div className="flex-1 px-4 lg:px-6 py-6">
@@ -269,12 +253,12 @@ export function CalendarPage({ onNavigate }: CalendarPageProps) {
           {/* LEFT: All calendar content flows naturally */}
           <div className="flex-1 min-w-0 space-y-4">
             {/* Month Navigation */}
-            <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-3">
+            <div className="bg-white rounded border border-gray-200 p-3">
               <div className="flex items-center justify-between">
                 {/* Prev Button */}
                 <button
                   onClick={goToPrevMonth}
-                  className="p-2 rounded-lg hover:bg-gray-100 transition-colors text-gray-600 hover:text-teal-600"
+                  className="p-2 rounded hover:bg-gray-100 transition-colors text-gray-600 hover:text-primary-600"
                 >
                   <span className="text-xl">←</span>
                 </button>
@@ -283,7 +267,7 @@ export function CalendarPage({ onNavigate }: CalendarPageProps) {
                 <div className="text-center">
                   <h2 className="text-xl sm:text-2xl font-semibold text-gray-800">
                     {calendarData.monthName}
-                    <span className="text-teal-500 ml-2">{calendarData.yearGeez}</span>
+                    <span className="text-primary-500 ml-2">{calendarData.yearGeez}</span>
                   </h2>
                   <p className="text-sm text-gray-500">
                     {calendarData.monthNameEnglish} {viewYear} ዓ/ም
@@ -295,7 +279,7 @@ export function CalendarPage({ onNavigate }: CalendarPageProps) {
                 {/* Next Button */}
                 <button
                   onClick={goToNextMonth}
-                  className="p-2 rounded-lg hover:bg-gray-100 transition-colors text-gray-600 hover:text-teal-600"
+                  className="p-2 rounded hover:bg-gray-100 transition-colors text-gray-600 hover:text-primary-600"
                 >
                   <span className="text-xl">→</span>
                 </button>
@@ -305,9 +289,9 @@ export function CalendarPage({ onNavigate }: CalendarPageProps) {
               <div className="mt-3 text-center">
                 <button
                   onClick={goToToday}
-                  className={`px-3 py-1 text-xs font-medium rounded-full transition-colors ${
+                  className={`px-3 py-1 text-xs font-medium rounded transition-colors ${
                     viewYear !== today.year || viewMonth !== today.month
-                      ? 'text-teal-600 bg-teal-50 hover:bg-teal-100'
+                      ? 'text-primary-600 bg-primary-50 hover:bg-primary-100'
                       : 'invisible'
                   }`}
                 >
@@ -317,7 +301,7 @@ export function CalendarPage({ onNavigate }: CalendarPageProps) {
             </div>
 
             {/* Month Selector */}
-            <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-3 overflow-x-auto">
+            <div className="bg-white rounded border border-gray-200 p-3 overflow-x-auto">
               <div className="flex justify-center gap-1 min-w-max">
                 {monthNames.amharic.map((name: string, index: number) => {
                   // English month abbreviations
@@ -329,13 +313,13 @@ export function CalendarPage({ onNavigate }: CalendarPageProps) {
                       className={`
                         px-2 py-1.5 text-sm rounded-md transition-colors whitespace-nowrap flex flex-col items-center
                         ${viewMonth === index + 1 
-                          ? 'bg-teal-500 text-white' 
+                          ? 'bg-primary-500 text-white' 
                           : 'text-gray-600 hover:bg-gray-100'
                         }
                       `}
                     >
                       <span>{name}</span>
-                      <span className={`text-[10px] ${viewMonth === index + 1 ? 'text-teal-100' : 'text-gray-400'}`}>
+                      <span className={`text-[10px] ${viewMonth === index + 1 ? 'text-primary-100' : 'text-gray-400'}`}>
                         {engAbbrev}
                       </span>
                     </button>
@@ -345,7 +329,7 @@ export function CalendarPage({ onNavigate }: CalendarPageProps) {
             </div>
 
             {/* Calendar Grid */}
-            <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-4">
+            <div className="bg-white rounded border border-gray-200 p-4">
               {/* Weekday Headers */}
               <div className="grid grid-cols-7 gap-1 mb-2">
                 {WEEKDAYS.english.map((day, index) => (
@@ -391,9 +375,12 @@ export function CalendarPage({ onNavigate }: CalendarPageProps) {
           {/* RIGHT: Sidebar */}
           <div className="lg:w-72 shrink-0 space-y-4">
             {/* Ad Placeholder - Height matches month nav + month selector */}
-            <div className="bg-white rounded-xl border-2 border-dashed border-gray-200 p-5 flex flex-col items-center justify-center min-h-[205px]">
+            <Link 
+              to="/support"
+              className="bg-white rounded border-2 border-dashed border-gray-300 p-5 flex flex-col items-center justify-center min-h-[205px] hover:border-primary-400 hover:bg-primary-50/30 transition-colors group cursor-pointer"
+            >
               <svg 
-                className="w-8 h-8 text-teal-400 mb-2" 
+                className="w-8 h-8 text-primary-400 mb-2 group-hover:text-primary-500 transition-colors" 
                 fill="none" 
                 viewBox="0 0 24 24" 
                 stroke="currentColor"
@@ -405,34 +392,34 @@ export function CalendarPage({ onNavigate }: CalendarPageProps) {
                   d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" 
                 />
               </svg>
-              <p className="text-sm font-medium text-teal-500 mb-0.5">Your Ad Here</p>
-              <p className="text-xs text-gray-400 text-center">
-                Support Ge'ez Calc by advertising
+              <p className="text-sm font-medium text-primary-500 mb-0.5 group-hover:text-primary-600 transition-colors">Your Ad Here</p>
+              <p className="text-xs text-gray-400 text-center group-hover:text-gray-500 transition-colors">
+    Support by advertising
               </p>
-            </div>
+            </Link>
 
-            {/* Legend - Compact inline */}
-            <div className="flex items-center justify-center gap-4 text-xs text-gray-500 py-1">
-              <div className="flex items-center gap-1.5">
-                <span className="w-2.5 h-2.5 rounded-full bg-teal-500"></span>
-                <span>Today</span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <span className="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
-                <span>Holiday</span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <span className="w-2.5 h-2.5 rounded-full bg-purple-400"></span>
-                <span>Observance</span>
-              </div>
-            </div>
+             {/* Legend - Compact inline */}
+             <div className="flex items-center justify-center gap-4 text-xs text-gray-500 py-1">
+               <div className="flex items-center gap-1.5">
+                 <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: 'var(--primary)' }}></span>
+                 <span>Today</span>
+               </div>
+               <div className="flex items-center gap-1.5">
+                 <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: 'var(--holiday-indicator)' }}></span>
+                 <span>Holiday</span>
+               </div>
+               <div className="flex items-center gap-1.5">
+                 <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: 'var(--observance-indicator)' }}></span>
+                 <span>Observance</span>
+               </div>
+             </div>
 
             {/* Holidays & Observances List */}
-            <div className="bg-white rounded-xl border border-gray-100 overflow-hidden">
-              <div className="px-4 py-3 bg-amber-50 border-b border-amber-100">
-                <h3 className="text-sm font-medium text-amber-800">
-                  Holidays & Observances in {calendarData.monthName}
-                </h3>
+            <div className="bg-white rounded border border-gray-200 overflow-hidden">
+              <div className="px-4 py-3 bg-primary-50 border-b border-primary-100">
+                 <h3 className="text-sm font-medium text-primary-800">
+                   Holidays & Observances in {calendarData.monthName}
+                 </h3>
               </div>
               {monthHolidays.length > 0 ? (
                 <div>
@@ -447,14 +434,14 @@ export function CalendarPage({ onNavigate }: CalendarPageProps) {
                       {officialHolidays.map((holiday) => (
                         <li key={holiday.day} className="px-4 py-3">
                           <div className="flex items-center gap-2">
-                            <span className="w-2 h-2 rounded-full bg-amber-500 shrink-0 mt-1"></span>
+                             <span className="w-2 h-2 rounded-full shrink-0 mt-1" style={{ backgroundColor: 'var(--holiday-indicator)' }}></span>
                             <div>
                               <span className="text-sm text-gray-800 font-medium block">{holiday.name}</span>
                               <span className="text-xs text-gray-400 block">{holiday.nameEnglish}</span>
                             </div>
                           </div>
                           <div className="text-xs text-gray-500 pl-4 mt-1">
-                            <span className="text-teal-600 font-medium">{holiday.dayGeez}</span>
+                            <span className="text-primary-600 font-medium">{holiday.dayGeez}</span>
                             <span className="mx-1">•</span>
                             <span>{calendarData.monthNameEnglish} {holiday.day}</span>
                           </div>
@@ -474,14 +461,14 @@ export function CalendarPage({ onNavigate }: CalendarPageProps) {
                       {observances.map((observance) => (
                         <li key={observance.day} className="px-4 py-3">
                           <div className="flex items-center gap-2">
-                            <span className="w-2 h-2 rounded-full bg-purple-400 shrink-0 mt-1"></span>
+                             <span className="w-2 h-2 rounded-full shrink-0 mt-1" style={{ backgroundColor: 'var(--observance-indicator)' }}></span>
                             <div>
                               <span className="text-sm text-gray-800 font-medium block">{observance.name}</span>
                               <span className="text-xs text-gray-400 block">{observance.nameEnglish}</span>
                             </div>
                           </div>
                           <div className="text-xs text-gray-500 pl-4 mt-1">
-                            <span className="text-teal-600 font-medium">{observance.dayGeez}</span>
+                            <span className="text-primary-600 font-medium">{observance.dayGeez}</span>
                             <span className="mx-1">•</span>
                             <span>{calendarData.monthNameEnglish} {observance.day}</span>
                           </div>
@@ -503,9 +490,9 @@ export function CalendarPage({ onNavigate }: CalendarPageProps) {
 
         {/* Info - Full width, centered content */}
         <div className="mt-6">
-          <div className="bg-white rounded-xl border border-gray-100 p-4">
+          <div className="bg-white rounded border border-gray-200 p-4">
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 text-center sm:text-left">
-              <CalendarIcon size={20} className="text-teal-500 shrink-0" />
+              <CalendarIcon size={20} className="text-primary-500 shrink-0" />
               <p className="text-sm text-gray-600">
                 <span className="font-medium text-gray-800">Ethiopian Calendar</span>
                 <span className="hidden sm:inline"> — </span>
@@ -513,12 +500,12 @@ export function CalendarPage({ onNavigate }: CalendarPageProps) {
                 The Ethiopian calendar has 13 months — 12 months of 30 days each, 
                 plus <strong>Pagume</strong> (ጳጉሜ), a 13th month of 5 or 6 days. 
                 The year is 7-8 years behind the Gregorian calendar.
-                <button 
-                  onClick={() => onNavigate('learn')}
-                  className="ml-2 text-teal-600 hover:text-teal-700 font-medium hover:underline"
+                <Link 
+                  to="/learn"
+                  className="ml-2 text-primary-600 hover:text-primary-700 font-medium hover:underline"
                 >
                   Learn more →
-                </button>
+                </Link>
               </p>
             </div>
           </div>
@@ -526,8 +513,30 @@ export function CalendarPage({ onNavigate }: CalendarPageProps) {
       </div>
 
       {/* Footer */}
-      <footer className="py-4 text-center text-sm text-gray-400 border-t border-gray-200">
-        <p>Ge'ez Calc — Discover Ethiopian Heritage</p>
+      <footer className="py-4 px-4 lg:px-6 text-sm text-gray-400 border-t border-gray-200">
+        <div className="flex items-center justify-between">
+          <p>Ge'ez Calc — Ethiopian</p>
+          <div className="flex items-center gap-4">
+            <Link
+              to="/report"
+              className="inline-flex items-center gap-1.5 text-primary-500 hover:text-primary-600 transition-colors font-medium"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              Report
+            </Link>
+            <Link
+              to="/support"
+              className="inline-flex items-center gap-1.5 text-primary-500 hover:text-primary-600 transition-colors font-medium"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+              </svg>
+  Support
+            </Link>
+          </div>
+        </div>
       </footer>
     </div>
   )

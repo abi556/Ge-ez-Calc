@@ -56,16 +56,20 @@ export function CalendarDayCell({
         onMouseEnter={() => isHoliday && setShowTooltip(true)}
         onMouseLeave={() => setShowTooltip(false)}
         className={`
-          relative w-full p-1 sm:p-2 min-h-[60px] sm:min-h-[80px] rounded-lg transition-all
+          relative w-full p-1 sm:p-2 min-h-[60px] sm:min-h-[80px] rounded transition-colors
           flex flex-col items-center justify-start gap-0.5
           ${isCurrentMonth ? '' : 'opacity-40'}
           ${isToday 
-            ? 'bg-teal-500 text-white shadow-lg shadow-teal-500/30 ring-2 ring-teal-400' 
+            ? 'text-white border-2' 
             : 'bg-white hover:bg-gray-50 border border-gray-100'
           }
-          ${isHoliday && !isToday && isOfficialHoliday ? 'bg-amber-50/30 border-amber-200/50 hover:border-amber-500' : ''}
-          ${isHoliday && !isToday && !isOfficialHoliday ? 'bg-purple-50/30 border-purple-200/50 hover:border-purple-400' : ''}
+          ${isHoliday && !isToday && isOfficialHoliday ? 'bg-primary-50/30 border-primary-200/50 hover:border-primary-500' : ''}
+          ${isHoliday && !isToday && !isOfficialHoliday ? 'bg-secondary-50/30 border-secondary-200/50 hover:border-secondary-400' : ''}
         `}
+         style={isToday ? {
+           backgroundColor: 'var(--primary)',
+           borderColor: 'var(--primary-600)'
+         } : undefined}
       >
         {/* Arabic Numeral - Primary */}
         <span className={`
@@ -78,7 +82,7 @@ export function CalendarDayCell({
         {/* Ge'ez Numeral - Subscript */}
         <span className={`
           text-[10px] sm:text-xs leading-none
-          ${isToday ? 'text-teal-100' : 'text-teal-500'}
+          ${isToday ? 'text-white/90' : 'text-primary-500'}
         `}>
           {geezDay}
         </span>
@@ -86,23 +90,29 @@ export function CalendarDayCell({
         {/* Gregorian Date - Reference */}
         <span className={`
           text-[9px] sm:text-[10px] leading-none mt-auto
-          ${isToday ? 'text-teal-200' : 'text-gray-400'}
+          ${isToday ? 'text-white/80' : 'text-gray-400'}
         `}>
           {gregorianDate}
         </span>
 
         {/* Holiday Indicator */}
         {isHoliday && (
-          <span className={`
-            absolute top-1 right-1 w-2 h-2 rounded-full
-            ${isToday ? 'bg-white' : isOfficialHoliday ? 'bg-amber-500' : 'bg-purple-400'}
-          `} />
+          <span 
+            className="absolute top-1 right-1 w-2 h-2 rounded-full"
+            style={{
+              backgroundColor: isToday 
+                ? 'white' 
+                : isOfficialHoliday 
+                  ? 'var(--holiday-indicator)' 
+                  : 'var(--observance-indicator)'
+            }}
+          />
         )}
       </button>
 
       {/* Holiday Tooltip */}
       {isHoliday && holidayName && showTooltip && (
-        <div className="absolute z-20 bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-2 bg-gray-800 text-white text-xs rounded-lg shadow-lg whitespace-nowrap">
+        <div className="absolute z-20 bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-2 bg-gray-800 text-white text-xs rounded border border-gray-700 whitespace-nowrap">
           <span className="font-medium">{holidayName}</span>
           <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-gray-800" />
         </div>

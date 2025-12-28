@@ -1,0 +1,207 @@
+{
+  "id": "holidays",
+  "title": "Major Holidays",
+  "description": "Explore Ethiopian Orthodox holidays, both fixed and movable, and understand the difference between official holidays and religious observances.",
+  "category": "core",
+  "estimatedTime": "15 min read",
+  "parts": [
+    {
+      "id": "part-1",
+      "title": "Fixed Celebrations: Holidays That Never Change Dates",
+      "order": 1,
+      "content": [
+        {
+          "type": "paragraph",
+          "data": {
+            "text": "The Ethiopian Orthodox Tewahedo Church observes many holidays through fixed dates tied to the Ethiopian calendar. These holidays always fall on the same Ethiopian calendar dates, though their Gregorian dates shift slightly due to the calendar offset."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "text": "Major Fixed Holidays"
+          }
+        },
+        {
+          "type": "table",
+          "data": {
+            "headers": ["Holiday Name (Amharic)", "English Name", "Ethiopian Date", "Gregorian Date"],
+            "rows": [
+              ["እንቁጣጣሽ", "Ethiopian New Year (Enkutatash)", "Meskerem 1", "September 11/12"],
+              ["መስቀል", "Finding of the True Cross (Meskel)", "Meskerem 17", "September 27/28"],
+              ["ገና", "Ethiopian Christmas (Gena)", "Tahsas 29", "January 7"],
+              ["ጥምቀት", "Ethiopian Epiphany (Timkat)", "Tir 11", "January 19"],
+              ["የአድዋ ድል በዓል", "Victory of Adwa", "Yekatit 23", "March 2"],
+              ["የሰማዕታት ቀን", "Martyrs' Day", "Yekatit 23", "March 2"],
+              ["የአርበኞች ቀን", "Patriots' Victory Day", "Miazia 27", "May 5"],
+              ["የሰራተኞች ቀን", "International Labour Day", "Miazia 23", "May 1"],
+              ["የብሔር ብሔረሰቦች ቀን", "Nations, Nationalities, and Peoples' Day", "Sene 28", "June 7"]
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "text": "Monthly Recurring Holidays"
+          }
+        },
+        {
+          "type": "paragraph",
+          "data": {
+            "text": "The Ethiopian Orthodox Church also celebrates monthly recurring holidays on fixed dates: Trinity on the 7th, Michael the Archangel on the 12th, Covenant of Mercy on the 16th, Holy Virgin Assumption on the 21st, Death of Our Lord on the 27th, and the birth of Christ on the 29th of each month."
+          }
+        },
+        {
+          "type": "key-points",
+          "data": {
+            "points": [
+              "Fixed to specific Ethiopian calendar dates",
+              "Always fall on same Gregorian dates (accounting for leap years)",
+              "Include both religious and national holidays"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "part-2",
+      "title": "Calculating Movable Feasts: The Bahire Hasab System",
+      "order": 2,
+      "content": [
+        {
+          "type": "paragraph",
+          "data": {
+            "text": "The calculation of movable holidays follows a set of ecclesiastical rules documented in a book called 'Bahire Hasab.' The primary movable holiday is Fasika (Easter), which determines the dates of other dependent feasts."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "text": "Fasika (Easter) Constraints"
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "items": [
+              "Cannot occur before Megabit 26 or after Miyazia 30",
+              "Must fall on a Sunday",
+              "Easter Lent always begins on a Monday and cannot occur before Yekatit 1 or after Megabit 5"
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "text": "Related Movable Feasts"
+          }
+        },
+        {
+          "type": "table",
+          "data": {
+            "headers": ["Holiday", "Constraints", "Notes"],
+            "rows": [
+              ["Palm Sunday", "Cannot occur before Megabit 19 or after Miyazia 23", "Always on Sunday"],
+              ["Good Friday (ስቅለት)", "Calculated from Easter", "Official holiday"],
+              ["Fasika (Easter)", "Between Megabit 26 - Miyazia 30", "Official holiday, always Sunday"],
+              ["Ascension", "Always begins on Thursday; cannot occur before Ginbot 5 or after Sene 9", "Religious observance"],
+              ["Pentecost", "Always begins on Sunday; cannot occur before Ginbot 15 or after Sene 19", "Religious observance"]
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "text": "The Calculation System"
+          }
+        },
+        {
+          "type": "paragraph",
+          "data": {
+            "text": "The Easter calculation is based on the system of Ammonius, which uses lunar and solar calculations to determine the date. The Ethiopian Orthodox Church uses this ancient system rather than the Gregorian or Julian methods adopted by Western and other Eastern Christian traditions."
+          }
+        },
+        {
+          "type": "key-points",
+          "data": {
+            "points": [
+              "Dates vary each year",
+              "Calculated using ancient ecclesiastical rules",
+              "Easter determines other movable feast dates"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "part-3",
+      "title": "Understanding Holiday Categories",
+      "order": 3,
+      "content": [
+        {
+          "type": "paragraph",
+          "data": {
+            "text": "Not all religious observances are official holidays. Understanding the difference helps clarify which days involve calendar closures and which are important religious commemorations."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "text": "Official Holidays (Government/School Recognized)"
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "items": [
+              "All fixed Christian holidays (Enkutatash, Meskel, Gena, Timkat)",
+              "All national holidays (Victory of Adwa, Martyrs' Day, etc.)",
+              "Good Friday (ስቅለት) - only movable Christian holiday that's official",
+              "Ethiopian Easter (ፋሲካ) - only movable Christian holiday that's official",
+              "All Islamic holidays (Eid al-Fitr, Eid al-Adha, Moulid)"
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "text": "Religious Observances (Not Official Holidays)"
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "items": [
+              "Fast of Nineveh (ጾመ ነነዌ)",
+              "Great Lent (ዐቢይ ጾም)",
+              "Mid-Lent Sunday (ደብረ ዘይት)",
+              "Palm Sunday (ሆሳዕና)",
+              "Meeting of the Priests (ርክበ ካህናት)",
+              "Ascension (ዕርገት)",
+              "Pentecost (ጰራቅሊጦስ)",
+              "Apostles' Fast (ጾመ ሐዋርያት)",
+              "Fast of Salvation (ጾመ ድኅነት)"
+            ]
+          }
+        },
+        {
+          "type": "paragraph",
+          "data": {
+            "text": "These observances are important to Orthodox Christians but are not recognized as official holidays by government or school calendars. They represent fasting periods, commemorative dates, and religious milestones that are observed within the church community."
+          }
+        },
+        {
+          "type": "key-points",
+          "data": {
+            "points": [
+              "Official holidays = calendar closures, recognized by government/schools",
+              "Religious observances = important to Orthodox Christians but not official holidays",
+              "Most movable Christian observances are not official holidays"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
+

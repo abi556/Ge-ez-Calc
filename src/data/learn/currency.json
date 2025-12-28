@@ -1,0 +1,176 @@
+{
+  "id": "currency",
+  "title": "Historical Currency",
+  "description": "Learn about amole salt bars and the Maria Theresa Thaler that shaped Ethiopian trade history.",
+  "category": "additional",
+  "estimatedTime": "12 min read",
+  "parts": [
+    {
+      "id": "part-1",
+      "title": "Amole Tchew: When Salt Was Currency",
+      "order": 1,
+      "content": [
+        {
+          "type": "paragraph",
+          "data": {
+            "text": "Blocks of salt called amole tchew (አሞሌ) served as one of Ethiopia's traditional currencies in the 18th and 19th centuries. Salt functioned as a practical store of value in the Horn of Africa region, alongside other means of payment including cloth and glass beads used for smaller transactions."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "text": "Practical Limitations"
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "items": [
+              "Heavy to transport - required camel caravans for large transactions",
+              "Made long-distance commerce cumbersome",
+              "Difficult to store and preserve",
+              "Value could vary based on quality and condition"
+            ]
+          }
+        },
+        {
+          "type": "paragraph",
+          "data": {
+            "text": "However, salt had significant practical limitations for large-scale trade: merchants had to transport heavy salt bars by camel caravan, making long-distance commerce cumbersome."
+          }
+        },
+        {
+          "type": "key-points",
+          "data": {
+            "points": [
+              "Salt functioned as practical store of value",
+              "Limited by weight and transport challenges",
+              "Used alongside other traditional payment methods"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "part-2",
+      "title": "The Silver Coin That Ruled Ethiopian Trade",
+      "order": 2,
+      "content": [
+        {
+          "type": "paragraph",
+          "data": {
+            "text": "The Maria Theresa Thaler arrived in Ethiopia during the late 18th and early 19th centuries. This Austrian silver coin, minted in Vienna starting in 1751 under Empress Maria Theresa and bearing her profile, circulated widely throughout the Middle East and East Africa."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "text": "Advantages Over Salt"
+          }
+        },
+        {
+          "type": "table",
+          "data": {
+            "headers": ["Aspect", "Salt", "Thaler"],
+            "rows": [
+              ["Transport", "Camel caravans needed", "20 donkeys with 32,000 thalers"],
+              ["Weight", "Heavy, bulky", "Portable, compact"],
+              ["Consistency", "Variable quality", "Consistent weight and silver content"],
+              ["Security", "Easily damaged", "Forgery-resistant design"],
+              ["Trade Range", "Local/regional", "International acceptance"]
+            ]
+          }
+        },
+        {
+          "type": "paragraph",
+          "data": {
+            "text": "For a major transaction like purchasing 100 tonnes of coffee in western Ethiopia, a merchant could send twenty donkeys loaded with 32,000 thalers instead of transporting vastly larger quantities of salt."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "text": "Why the Thaler Became Dominant"
+          }
+        },
+        {
+          "type": "paragraph",
+          "data": {
+            "text": "The coin's value and acceptance stemmed from its consistent weight, high silver content, and forgery-resistant design. Austria exported the thalers profitably, and they became a 'hard currency' in the Levant, Arabia, and East Africa. The shortage of silver in Europe—caused by silver coins flowing to Asia for spice, silk, and tea purchases—made these coins particularly valuable for international trade."
+          }
+        },
+        {
+          "type": "key-points",
+          "data": {
+            "points": [
+              "Replaced salt for large-scale trade",
+              "Highly trusted and widely accepted",
+              "Over 400 million thalers minted across decades"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "part-3",
+      "title": "From Thaler to Birr: The Transition to Modern Currency",
+      "order": 3,
+      "content": [
+        {
+          "type": "paragraph",
+          "data": {
+            "text": "The transition from the Maria Theresa Thaler to the modern Ethiopian birr reflects Ethiopia's economic modernization and integration into the global financial system."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "text": "Timeline of Currency Evolution"
+          }
+        },
+        {
+          "type": "table",
+          "data": {
+            "headers": ["Year", "Event", "Significance"],
+            "rows": [
+              ["1855", "Maria Theresa thalers officially adopted as standard coin", "Formal recognition of thaler"],
+              ["1893", "Ethiopian talari became standard unit", "200,000 coins produced at Paris Mint for Emperor Menelik II"],
+              ["1915", "Bank of Abyssinia began issuing banknotes in birr", "First paper currency, though thalers continued circulation"],
+              ["Post-WWII", "Emperor Haile Selassie banned trade in thaler", "End of thaler as official currency"],
+              ["Modern Era", "Ethiopian birr became sole legal tender", "Complete transition to modern currency"]
+            ]
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "text": "Lasting Legacy"
+          }
+        },
+        {
+          "type": "paragraph",
+          "data": {
+            "text": "Many thalers were melted down from July 1945 onward, with silversmiths in Addis Ababa's Mercato district repurposing the coins for jewelry. The thaler's transformation reflects Ethiopia's economic modernization. While amole had served traditional trade needs for centuries, the Maria Theresa Thaler demonstrated the advantages of standardized, portable, and trusted currency for expanding international commerce."
+          }
+        },
+        {
+          "type": "paragraph",
+          "data": {
+            "text": "The name 'birr' means 'silver' in Ge'ez and Amharic, preserving the connection to the silver-based currency system that preceded it."
+          }
+        },
+        {
+          "type": "key-points",
+          "data": {
+            "points": [
+              "Smooth transition from thaler to birr",
+              "Thaler's influence visible in modern currency name",
+              "Coins remain valuable as silver sources for artisans"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
+

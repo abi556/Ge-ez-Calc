@@ -31,7 +31,7 @@ export function TodayWidget({
           Today
         </p>
         <p className="text-2xl font-extralight text-gray-700 tracking-wide">
-          <span className="text-teal-600">
+          <span className="text-primary-600">
             {today.monthNameAmharic} {today.dayGeez}
           </span>
           <span className="text-gray-300 mx-2">•</span>
@@ -41,7 +41,7 @@ export function TodayWidget({
           <p className="text-xs text-gray-400 font-light mt-1">
             Year of {today.evangelist.nameEnglish}
             <span className="text-gray-300 mx-1">·</span>
-            <span className="text-teal-500/70">{today.evangelist.name}</span>
+            <span className="text-primary-500/70">{today.evangelist.name}</span>
           </p>
         )}
       </div>
@@ -56,7 +56,7 @@ export function TodayWidget({
         <span className="text-sm font-light text-gray-300 tracking-wide">
           {today.monthNameAmharic}
         </span>
-        <span className="text-sm font-light text-teal-400/80">
+        <span className="text-sm font-light text-primary-400/80">
           {today.dayGeez}
         </span>
         <span className="text-gray-500 text-xs">•</span>

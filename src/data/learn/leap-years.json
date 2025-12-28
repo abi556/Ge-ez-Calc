@@ -1,0 +1,110 @@
+{
+  "id": "leap-years",
+  "title": "Deep Dive into Leap Years",
+  "description": "Explore the 4-year Evangelist cycle and how it determines leap years in the Ethiopian calendar.",
+  "category": "additional",
+  "estimatedTime": "7 min read",
+  "parts": [
+    {
+      "id": "part-1",
+      "title": "Matthew, Mark, Luke, and John: The 4-Year Evangelist Cycle",
+      "order": 1,
+      "content": [
+        {
+          "type": "paragraph",
+          "data": {
+            "text": "The Ethiopian calendar's 4-year leap year cycle is named after the four Evangelists, with each year in the cycle designated by a specific evangelist's name. The leap year itself is traditionally called the 'Luke-year' due to the sixth epagomenal day added to Pagumē."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "text": "The Cycle Structure"
+          }
+        },
+        {
+          "type": "table",
+          "data": {
+            "headers": ["Year in Cycle", "Evangelist Name", "Amharic", "Leap Year?"],
+            "rows": [
+              ["1st year after leap", "John-year", "ዮሐንስ", "No"],
+              ["2nd year", "Matthew-year", "ማቴዎስ", "No"],
+              ["3rd year", "Mark-year", "ማርቆስ", "No"],
+              ["4th year", "Luke-year", "ሉቃስ", "Yes (6 days in Pagumē)"]
+            ]
+          }
+        },
+        {
+          "type": "paragraph",
+          "data": {
+            "text": "This naming convention connects the Ethiopian calendar to Ethiopian Orthodox Christian tradition, associating the regular passage of time with the four Gospel authors. Each year in the cycle is named after an evangelist, creating a religious and cultural significance beyond mere timekeeping."
+          }
+        },
+        {
+          "type": "key-points",
+          "data": {
+            "points": [
+              "4-year cycle named after the four Evangelists",
+              "Leap year is the 'Luke-year'",
+              "Religious and cultural significance"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "part-2",
+      "title": "The Sixth Day: How Pagumē Handles Leap Years",
+      "order": 2,
+      "content": [
+        {
+          "type": "paragraph",
+          "data": {
+            "text": "Pagumē is the 13th month of the Ethiopian calendar, containing 5 days in a normal year and 6 days in a leap year. The leap year occurs every 4 years without exception and is traditionally called the 'Luke-year' in the 4-year Evangelist cycle."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "text": "Leap Year System"
+          }
+        },
+        {
+          "type": "paragraph",
+          "data": {
+            "text": "The Ethiopian calendar adds a leap day to Pagumē every 4 years to maintain solar alignment, similar to how the Gregorian calendar adds a day to February. However, the Ethiopian system uses a simple 4-year rule with no exceptions, unlike the more complex Gregorian formula which excludes most centurial years."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "text": "Comparison to Gregorian System"
+          }
+        },
+        {
+          "type": "paragraph",
+          "data": {
+            "text": "This simple 4-year leap year rule, while mathematically elegant and culturally meaningful through the Evangelist naming system, results in the Ethiopian calendar drifting slightly relative to the solar year over time. The Gregorian calendar's more complex leap year formula (excluding most centurial years) was designed to address this drift, making it more astronomically accurate."
+          }
+        },
+        {
+          "type": "example",
+          "data": {
+            "text": "In a Luke-year, Pagumē has 6 days instead of 5. This extra day maintains the calendar's alignment with the solar year, ensuring that Ethiopian New Year (Enkutatash) continues to fall around September 11-12 in the Gregorian calendar."
+          }
+        },
+        {
+          "type": "key-points",
+          "data": {
+            "points": [
+              "Simple, predictable 4-year cycle",
+              "Leap day added to Pagumē, not to regular months",
+              "No exceptions to the 4-year rule"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
+

@@ -1,0 +1,162 @@
+{
+  "id": "timekeeping-system",
+  "title": "Timekeeping System",
+  "description": "Understand the unique Ethiopian time system with its two 12-hour cycles based on sunrise and sunset.",
+  "category": "core",
+  "estimatedTime": "8 min read",
+  "parts": [
+    {
+      "id": "part-1",
+      "title": "Dawn to Dusk: Understanding Ethiopian Time Cycles",
+      "order": 1,
+      "content": [
+        {
+          "type": "paragraph",
+          "data": {
+            "text": "The Ethiopian timekeeping system divides the day into two 12-hour cycles based on sunrise and sunset, rather than using midnight as the reference point like the Western system. This creates a 6-hour offset between Ethiopian local time and international time (UTC+3, also called East Africa Time)."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "text": "How the Two Cycles Work"
+          }
+        },
+        {
+          "type": "paragraph",
+          "data": {
+            "text": "The Ethiopian day operates with two distinct cycles:"
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "items": [
+              "Daytime Cycle: Begins at dawn (12:00 local time, approximately 6:00 AM EAT) and runs until dusk (11:59:59 local time, approximately 5:59:59 PM EAT)",
+              "Nighttime Cycle: Begins at dusk (12:00 local time, approximately 6:00 PM EAT) and runs until dawn (11:59:59 local time, approximately 5:59:59 AM EAT)"
+            ]
+          }
+        },
+        {
+          "type": "paragraph",
+          "data": {
+            "text": "This means the clock resets to 12:00 twice per day—at sunrise and sunset—rather than once at midnight."
+          }
+        },
+        {
+          "type": "key-points",
+          "data": {
+            "points": [
+              "Two 12-hour cycles per day",
+              "Sunrise and sunset are the reference points",
+              "6-hour offset from international time"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "part-2",
+      "title": "Converting Between Ethiopian and International Time",
+      "order": 2,
+      "content": [
+        {
+          "type": "paragraph",
+          "data": {
+            "text": "The 6-hour offset between systems creates straightforward conversions. When someone in Addis Ababa says 'meet at two,' they mean 2:00 in their local cycle, which corresponds to 8:00 AM Western time."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "text": "Practical Conversion Examples"
+          }
+        },
+        {
+          "type": "table",
+          "data": {
+            "headers": ["Western Time", "Ethiopian Local Time", "Cycle"],
+            "rows": [
+              ["7:00 AM", "1:00", "Daytime"],
+              ["12:00 PM (noon)", "6:00", "Daytime"],
+              ["6:00 PM", "12:00", "Nighttime (starts)"],
+              ["8:00 PM", "2:00", "Nighttime"],
+              ["12:00 AM (midnight)", "6:00", "Nighttime"],
+              ["6:00 AM", "12:00", "Daytime (starts)"]
+            ]
+          }
+        },
+        {
+          "type": "example",
+          "data": {
+            "text": "If a meeting is scheduled for '3:00 Ethiopian time' during the day, that's 9:00 AM international time. If it's '3:00' at night, that's 9:00 PM international time."
+          }
+        },
+        {
+          "type": "interactive",
+          "data": {
+            "type": "time-converter"
+          }
+        },
+        {
+          "type": "key-points",
+          "data": {
+            "points": [
+              "Simple 6-hour offset",
+              "Context matters (daytime vs. nighttime cycle)",
+              "Modern Ethiopia uses both systems"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "part-3",
+      "title": "Why Ethiopian Time Starts at Dawn",
+      "order": 3,
+      "content": [
+        {
+          "type": "paragraph",
+          "data": {
+            "text": "This system originated from ancient agrarian practices, where daylight dictated daily rhythm and activities were coordinated around sunrise and sunset rather than arbitrary clock hours."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "text": "Historical and Practical Context"
+          }
+        },
+        {
+          "type": "paragraph",
+          "data": {
+            "text": "Ethiopia's proximity to the equator means daylight and nighttime are each approximately 12 hours year-round, making this system particularly practical. The agricultural lifestyle required coordination with natural light cycles, not abstract clock hours."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "text": "Modern Usage"
+          }
+        },
+        {
+          "type": "paragraph",
+          "data": {
+            "text": "Despite its ancient roots, modern Ethiopia uses both systems interchangeably. Government offices, schools, banks, and businesses operate using dual calendars and time displays. Smartphones default to local time formats while maintaining international time compatibility."
+          }
+        },
+        {
+          "type": "key-points",
+          "data": {
+            "points": [
+              "Rooted in agricultural lifestyle",
+              "Practical for equatorial regions",
+              "Both systems coexist in modern Ethiopia"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
+

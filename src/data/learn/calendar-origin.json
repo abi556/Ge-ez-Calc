@@ -1,0 +1,130 @@
+{
+  "id": "calendar-origin",
+  "title": "The Calendar Origin",
+  "description": "Learn why the Ethiopian calendar is 7-8 years behind and understand the unique 13-month system.",
+  "category": "core",
+  "estimatedTime": "12 min read",
+  "parts": [
+    {
+      "id": "part-1",
+      "title": "Why Ethiopia is 7-8 Years Behind: The Annunciation Calculation",
+      "order": 1,
+      "content": [
+        {
+          "type": "paragraph",
+          "data": {
+            "text": "The Ethiopian calendar is 7-8 years behind the Gregorian calendar due to differences in calculating the date of the Annunciation of Jesus Christ's birth."
+          }
+        },
+        {
+          "type": "paragraph",
+          "data": {
+            "text": "While both calendars are solar systems with approximately 365-366 days annually, they use different theological frameworks to establish their starting points. The Gregorian calendar calculates years from the Annunciation using one method, while the Ethiopian calendar uses alternate calculations for this same event."
+          }
+        },
+        {
+          "type": "example",
+          "data": {
+            "text": "Ethiopia celebrated its millennium (year 2000) on September 12, 2007, in Gregorian terms, while the year 2001 began on September 11, 2008."
+          }
+        },
+        {
+          "type": "key-points",
+          "data": {
+            "points": [
+              "Difference stems from alternate calculations of the Annunciation",
+              "Both systems are solar calendars with similar day counts",
+              "The gap is consistent and predictable"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "part-2",
+      "title": "The 13-Month System: Understanding Ethiopian Calendar Months",
+      "order": 2,
+      "content": [
+        {
+          "type": "paragraph",
+          "data": {
+            "text": "The Ethiopian calendar has a distinctive structure with 12 months of exactly 30 days each, plus a 13th month called Pagumē that contains 5 days in a common year and 6 days in a leap year."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "text": "Month Names and Gregorian Correspondence"
+          }
+        },
+        {
+          "type": "table",
+          "data": {
+            "headers": ["Ethiopian Month", "Gregorian Dates"],
+            "rows": [
+              ["Meskerem (New Year)", "September 11 – October 10"],
+              ["Tikimt", "October 11 – November 9"],
+              ["Hidar", "November 10 – December 9"],
+              ["Tahsas", "December 10 – January 8"],
+              ["Tir", "January 9 – February 7"],
+              ["Yakatit", "February 8 – March 9"],
+              ["Maggabit", "March 10 – April 8"],
+              ["Miyazya", "April 9 – May 8"],
+              ["Ginbot", "May 9 – June 7"],
+              ["Sene", "June 8 – July 7"],
+              ["Hamle", "July 8 – August 6"],
+              ["Nehasa", "August 7 – September 6"],
+              ["Pagumē", "September 7-10 (or 7-11 in leap years)"]
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "data": {
+            "points": [
+              "Unique 13-month structure",
+              "Months have consistent 30-day lengths",
+              "Pagumē adjusts for leap years"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "part-3",
+      "title": "Pagumē: The 13th Month and Leap Year System",
+      "order": 3,
+      "content": [
+        {
+          "type": "paragraph",
+          "data": {
+            "text": "Pagumē is the 13th month of the Ethiopian calendar, containing 5 days in a normal year and 6 days in a leap year. The leap year occurs every 4 years without exception and is traditionally called the 'Luke-year' in the 4-year Evangelist cycle."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "text": "Leap Year System"
+          }
+        },
+        {
+          "type": "paragraph",
+          "data": {
+            "text": "The Ethiopian calendar adds a leap day to Pagumē every 4 years to maintain solar alignment, similar to how the Gregorian calendar adds a day to February. However, the Ethiopian system uses a simple 4-year rule with no exceptions, unlike the more complex Gregorian formula."
+          }
+        },
+        {
+          "type": "key-points",
+          "data": {
+            "points": [
+              "Simple, predictable 4-year cycle",
+              "Leap day added to Pagumē, not to regular months",
+              "Connected to religious tradition through Evangelist naming"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
+

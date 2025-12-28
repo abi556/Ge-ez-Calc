@@ -1,0 +1,147 @@
+{
+  "id": "measurements",
+  "title": "Traditional Units of Measurement",
+  "description": "Discover the body-based and commodity-specific measurement systems used in traditional Ethiopia.",
+  "category": "additional",
+  "estimatedTime": "10 min read",
+  "parts": [
+    {
+      "id": "part-1",
+      "title": "From Hand to Foot: Body-Based Ethiopian Measurements",
+      "order": 1,
+      "content": [
+        {
+          "type": "paragraph",
+          "data": {
+            "text": "Ethiopian traditional measurements were body-based and commodity-specific systems used before the country adopted the metric system in 1963. These units varied based on the item being measured and the individual performing the measurement."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "text": "Length Measurements"
+          }
+        },
+        {
+          "type": "table",
+          "data": {
+            "headers": ["Unit", "Amharic Name", "Description", "Approximate Size"],
+            "rows": [
+              ["Sinzir", "ስንዝር", "Distance from tip of middle finger to tip of thumb (hand extended)", "6-12 inches"],
+              ["Kend", "ክንድ", "Distance from elbow to tip of middle finger (similar to cubit)", "1-2 feet"],
+              ["Azq", "አዝቅ", "Distance from tip of index finger to first joint", "About 1 inch"],
+              ["Chamma", "ቻማ", "Distance from back of heel to tip of big toe", "Varies by foot size"]
+            ]
+          }
+        },
+        {
+          "type": "paragraph",
+          "data": {
+            "text": "These measurements were practical for everyday transactions in markets. Hand measurements were commonly used for market purchases of goods like butter and coffee."
+          }
+        },
+        {
+          "type": "key-points",
+          "data": {
+            "points": [
+              "Measurements vary by individual",
+              "Practical for everyday market transactions",
+              "Based on human body proportions"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "part-2",
+      "title": "Feresulla and Dawulla: Commodity-Specific Measurements",
+      "order": 2,
+      "content": [
+        {
+          "type": "paragraph",
+          "data": {
+            "text": "Feresulla is a particularly notable unit because its value changes based on the item being measured. A feresulla of butter differs from a feresulla of honey, which differs from a feresulla of red peppers. This flexibility reflected the practical nature of traditional Ethiopian commerce, where density and consistency of goods affected how volume was standardized."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "text": "Volume Measurements"
+          }
+        },
+        {
+          "type": "table",
+          "data": {
+            "headers": ["Unit", "Description", "Use Case"],
+            "rows": [
+              ["Feresulla", "Value changes based on item (butter, honey, red peppers, etc.)", "Commodity-specific volume measure"],
+              ["Dawulla", "Approximately 50 kilograms, depends on animal skin size", "Primarily for measuring grains"],
+              ["Tassa", "About one liter", "General liquid measure"],
+              ["Ensira", "Two to several gallons", "Larger liquid measure"],
+              ["Gerwoina", "About 20-30 liters", "Bulk liquid measure"],
+              ["Gan", "Several gallons", "Large volume measure"]
+            ]
+          }
+        },
+        {
+          "type": "key-points",
+          "data": {
+            "points": [
+              "Some measurements are commodity-specific",
+              "Reflects density and consistency of goods",
+              "Used before metric system adoption in 1963"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "part-3",
+      "title": "Scales and Loads: Traditional Weight Systems",
+      "order": 3,
+      "content": [
+        {
+          "type": "paragraph",
+          "data": {
+            "text": "Traditional scales, particularly steelyards, were used to measure coffee, grain, and other commodities. The more sensitive steelyards were reserved for precious metals and valuable goods, while conventional balances served general purposes."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "text": "Weight and Trade Applications"
+          }
+        },
+        {
+          "type": "list",
+          "data": {
+            "items": [
+              "Steelyards: Used to measure coffee, grain, and other commodities",
+              "Sensitive steelyards: Reserved for precious metals and valuable goods",
+              "Conventional balances: Served general purposes",
+              "Hand measurements: Commonly used for market purchases of butter and coffee",
+              "Load: Based on average weight carried by human porter, donkey, mule, or camel - used as unit of weight for bulk commodities like grain"
+            ]
+          }
+        },
+        {
+          "type": "example",
+          "data": {
+            "text": "A 'load' measurement would vary depending on whether it was carried by a human, donkey, mule, or camel, reflecting the practical nature of traditional Ethiopian commerce."
+          }
+        },
+        {
+          "type": "key-points",
+          "data": {
+            "points": [
+              "Different scales for different purposes",
+              "Load measurements based on transport capacity",
+              "Practical for traditional market commerce"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
+

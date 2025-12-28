@@ -1,0 +1,133 @@
+{
+  "id": "numeral-system",
+  "title": "The Numeral System",
+  "description": "Discover the unique Ge'ez numeral system, its historical origins, and how it works without zero.",
+  "category": "core",
+  "estimatedTime": "10 min read",
+  "parts": [
+    {
+      "id": "part-1",
+      "title": "From Greek to Ge'ez: The Birth of Ethiopian Numerals",
+      "order": 1,
+      "content": [
+        {
+          "type": "paragraph",
+          "data": {
+            "text": "The Ge'ez numeral system emerged from the Milesian Greek numeral system, likely transmitted through Egyptian Coptic numerals. Historical tradition attributes the invention to the Nine Saints—Eastern Orthodox monks fleeing persecution after the Council of Chalcedon (451 AD)."
+          }
+        },
+        {
+          "type": "paragraph",
+          "data": {
+            "text": "These monks translated the Greek Bible into Ge'ez, adapting Greek alphabetic characters for numerical values. The system borrowed the practice of using alphabetic characters for numbers, similar to Hebrew, Arabic abjad, and Greek numerals."
+          }
+        },
+        {
+          "type": "key-points",
+          "data": {
+            "points": [
+              "Ge'ez numerals are alphabetic, not positional",
+              "System predates the concept of zero in Western mathematics",
+              "Developed as part of religious translation work"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "part-2",
+      "title": "The Missing Zero: Understanding Ge'ez Mathematical Philosophy",
+      "order": 2,
+      "content": [
+        {
+          "type": "paragraph",
+          "data": {
+            "text": "None of the source systems (Greek, Coptic, or Hebrew) had a zero symbol. Ge'ez was a static adaptation of an ancient system rather than an evolution toward positional notation."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "text": "Mathematical Limitations"
+          }
+        },
+        {
+          "type": "paragraph",
+          "data": {
+            "text": "Without zero, the Ge'ez system cannot effectively perform place-value arithmetic, decimal operations, fractions, or higher mathematics. The absence of zero makes it impossible to distinguish between 20 and 200 using positional logic alone—the system relies entirely on distinct alphabetic characters and multiplicative prefixes."
+          }
+        },
+        {
+          "type": "key-points",
+          "data": {
+            "points": [
+              "Zero never existed in the source systems Ge'ez inherited",
+              "This limitation shaped how large numbers are represented",
+              "The system uses multipliers instead of positional notation"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "part-3",
+      "title": "፻ and ፼: How Multipliers Work in Ge'ez Numerals",
+      "order": 3,
+      "content": [
+        {
+          "type": "paragraph",
+          "data": {
+            "text": "Rather than developing positional notation with a zero, Ge'ez solved the problem of representing larger numbers through prefix multipliers."
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "text": "፻ (100) - The Hundred Multiplier"
+          }
+        },
+        {
+          "type": "paragraph",
+          "data": {
+            "text": "Used for numbers in the hundreds. For example, 475 is written as ፬፻፸፭ (4-100-70-5). Ethiopians prefix ones and tens to 100, so 200 = ፪፻, meaning 2 × 100."
+          }
+        },
+        {
+          "type": "example",
+          "data": {
+            "text": "Example: 123 = ፻፳፫ (100 + 20 + 3)"
+          }
+        },
+        {
+          "type": "heading",
+          "data": {
+            "text": "፼ (10,000) - The Myriad Multiplier"
+          }
+        },
+        {
+          "type": "paragraph",
+          "data": {
+            "text": "Represents 100 × 100, functioning as a shorthand for ፻፻. For instance, 83,692 is written as ፰፼፴፮፻፺፪ (8–10,000-30-6-100-90-2)."
+          }
+        },
+        {
+          "type": "example",
+          "data": {
+            "text": "Example: 10,000 = ፼, 100,000,000 = ፼፼ (nested myriads)"
+          }
+        },
+        {
+          "type": "key-points",
+          "data": {
+            "points": [
+              "Multipliers function as 'punctuation' in the numeral system",
+              "System can represent unlimited range through nesting",
+              "No new numeral glyphs created for multiples beyond 10,000"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
+
