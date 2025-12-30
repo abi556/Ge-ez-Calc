@@ -118,10 +118,7 @@ export function SupportPage() {
               
               <p className="text-sm text-gray-600 mb-4">
                 Reach professionals, companies, and individuals who work with Ethiopian dates, numbers, and calendar systems.
-                Our practical tools are used by both Ethiopian and international businesses and individuals. 
-                <strong> Advertise on Ethiopian calendar website</strong> and reach your target audience. 
-                <strong> Place your ad on Ethiopian calendar converter</strong> and get high visibility. 
-                <strong> Publish your advertisement on Ethiopian number converter</strong> to reach businesses working with Ethiopia.
+                Our practical tools are used by both Ethiopian and international businesses and individuals.
               </p>
 
               <div className="space-y-3 mb-6">
