@@ -56,11 +56,11 @@ export function TodayWidget({
         <span className="text-sm font-light text-gray-300 tracking-wide">
           {today.monthNameAmharic}
         </span>
-        <span className="text-sm font-light text-primary-400/80">
+        <span className="text-sm font-light" style={{ color: '#c99443' }}>
           {today.dayGeez}
         </span>
         <span className="text-gray-500 text-xs">•</span>
-        <span className="text-xs font-light text-gray-400">
+        <span className="text-sm font-light text-gray-300">
           {today.yearGeez}
         </span>
       </div>

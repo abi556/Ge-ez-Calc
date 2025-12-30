@@ -12,17 +12,20 @@ export function Header() {
 
   return (
     <header className="bg-gray-800 text-white" role="banner">
-      <div className="px-6 py-3 flex items-center justify-between">
-        <div className="flex items-center gap-4">
-          <Link to="/" className="flex items-center gap-2 hover:opacity-90 transition-opacity">
-            <img src="/ge-ez.png" alt="Ge'ez Calc Logo" className="h-8 w-auto" aria-hidden="true" />
-            <h1 className="hidden sm:block text-2xl font-medium tracking-tight">Ge'ez Calc</h1>
+      <div className="px-3 sm:px-6 py-3 flex items-center justify-between gap-2">
+        <div className="flex items-center gap-2 sm:gap-4 flex-shrink-0">
+          <Link to="/" className="flex items-center gap-2 hover:opacity-90 transition-opacity flex-shrink-0">
+            <img src="/ge-ez.png" alt="Ge'ez Calc Logo" className="h-6 sm:h-8 w-auto flex-shrink-0" aria-hidden="true" />
+            <h1 className="hidden sm:block text-2xl font-medium tracking-tight">
+              <span style={{ color: '#ebbe7c' }}>Ge'ez</span>{' '}
+              <span style={{ color: '#c99443' }}>Calc</span>
+            </h1>
           </Link>
           <div className="hidden sm:block border-l border-gray-700 pl-4">
             <TodayWidget variant="header" />
           </div>
         </div>
-        <nav className="flex items-center gap-4 sm:gap-6 text-sm" role="navigation" aria-label="Main navigation">
+        <nav className="flex items-center gap-2 sm:gap-4 md:gap-6 text-xs sm:text-sm min-w-0" role="navigation" aria-label="Main navigation">
           <Link
             to="/"
             className={`transition-colors focus:outline-none rounded px-2 py-1 ${

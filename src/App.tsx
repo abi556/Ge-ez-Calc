@@ -5,6 +5,9 @@ import { LearnPage } from './components/LearnPage'
 import { NumberConverterPage } from './pages/NumberConverterPage'
 import { SupportPage } from './pages/SupportPage'
 import { ReportIssuePage } from './pages/ReportIssuePage'
+import { AboutPage } from './pages/AboutPage'
+import { PrivacyPage } from './pages/PrivacyPage'
+import { TermsPage } from './pages/TermsPage'
 
 function App() {
     return (
@@ -16,6 +19,9 @@ function App() {
       <Route path="/learn" element={<LearnPage />} />
       <Route path="/support" element={<SupportPage />} />
       <Route path="/report" element={<ReportIssuePage />} />
+      <Route path="/about" element={<AboutPage />} />
+      <Route path="/privacy" element={<PrivacyPage />} />
+      <Route path="/terms" element={<TermsPage />} />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   )
