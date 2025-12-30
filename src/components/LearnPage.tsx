@@ -1,5 +1,4 @@
 import { useState, useMemo, useEffect } from 'react'
-import { Link } from 'react-router-dom'
 import { getAllTopics, getTopic, getRelatedTopics, searchTopics } from '../utils/learnContent'
 import { TopicNavigation } from './TopicNavigation'
 import { TopicCard } from './TopicCard'
